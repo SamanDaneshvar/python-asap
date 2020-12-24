@@ -3,7 +3,7 @@
 {% for post in site.posts reversed %}
   {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
     
-  <a href="/img/services/{{ post.img }}"><a>
+  <a href="/img/services/{{ post.img }}"></a>
   
     {% if thecycle == 'odd' %}
     <div class="content-section-a">
