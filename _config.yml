@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-theme: landing-page
+remote_theme: landing-page
 url: https://samandaneshvar.github.io/python2
 title: Python ASAP
 description: > # "Write an awesome description for your new site here. 
