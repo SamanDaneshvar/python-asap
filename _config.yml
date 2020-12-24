@@ -2,7 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
-remote_theme: landing-page
+theme: jekyll-theme-time-machine
 url: https://samandaneshvar.github.io/python2
 title: Python ASAP
 description: > # "Write an awesome description for your new site here. 
