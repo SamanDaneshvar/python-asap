@@ -2,14 +2,15 @@
 #      Main Configs       #
 # ----------------------- #
 
+theme: landing-page
 url: https://samandaneshvar.github.io/python2
 title: Python ASAP
-email: info@pythonasap.com
-author: Saman Daneshvar
 description: > # "Write an awesome description for your new site here. 
   You can edit this line in _config.yml. It will appear in your document 
   head meta (for Google search results) and in your feed.xml site 
   description."
+author: Saman Daneshvar
+email: info@pythonasap.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
