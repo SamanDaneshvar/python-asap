@@ -19,6 +19,11 @@ email: info@pythonasap.com
 markdown: kramdown
 permalink: pretty
 
+# Define collections
+collections:
+    - services
+    - testimonials
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
