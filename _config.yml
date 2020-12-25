@@ -18,8 +18,14 @@ email: info@pythonasap.com
 markdown: kramdown
 permalink: pretty
 
-# Define the collections directory
+# Set the collections directory
 collections_dir: all_collections
+# Define the collections
+collections:
+  - courses_to_enroll
+  - previous_courses
+  - services
+  - testimonials
 
 # ----------------------- #
 #   3rd Party Settings    #
