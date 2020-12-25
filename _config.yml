@@ -27,10 +27,8 @@ collections:
 #   3rd Party Settings    #
 # ----------------------- #
 
-social:
-  - title: youtube
-    url: # https://youtube.com/
-  - title: github
-    url: # https://github.com/
-  - title: linkedin
-    url: 
+# social:
+#   - title: youtube
+#     url: https://youtube.com/mychannel
+#   - title: github
+#     url: https://github.com/mygithub
