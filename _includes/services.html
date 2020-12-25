@@ -1,6 +1,6 @@
 <section id="services">
-<!-- Services (site posts) -->
-{% for post in site.posts reversed %}
+<!-- Services -->
+{% for post in site.services reversed %}
   {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
   
     {% if thecycle == 'odd' %}
