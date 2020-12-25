@@ -21,8 +21,8 @@ permalink: pretty
 
 # Define collections
 collections:
-    - services
-    - testimonials
+  - services
+  - testimonials
 
 # ----------------------- #
 #   3rd Party Settings    #
