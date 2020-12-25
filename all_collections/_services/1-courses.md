@@ -4,7 +4,6 @@ title: Courses Offered
 img: phones.png
 category: Services
 ---
-
 <h3>Programming Languages</h3>
 <ul>
   <li>Python</li>
