@@ -1,5 +1,3 @@
-/* This empty front matter is added to this CSS file so that it recognizes Jekyll variable {{ site.url }}. */
-
 /*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -265,8 +263,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('{{ site.url }}/assets/fonts/glyphicons-halflings-regular.eot');
-  src: url('{{ site.url }}/assets/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('{{ site.url }}/assets/fonts/glyphicons-halflings-regular.woff') format('woff'), url('{{ site.url }}/assets/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('{{ site.url }}/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
