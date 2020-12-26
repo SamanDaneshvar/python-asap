@@ -9,25 +9,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand page-scroll" href="{{ site.url }}">{{ site.title }}</a>
+      <!-- The JavaScript function for page-scroll, would not work with any URL other than an anchor link (#section).
+      On the other hand, relative URLs (e.g., anchor links) would only work correctly in the homepage.
+      We have used the following if statement to produce a “pure” anchor link on the homepage and an absolute URL + the anchor link on other pages.
+      -->
+      <a class="navbar-brand page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% else %}#home{% endif %}">{{ site.title }}</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">  
         <li>
-          <a class="page-scroll" href="{{ site.url }}#about">About</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#about">About</a>
         </li>      
         <li>
-          <a class="page-scroll" href="{{ site.url }}#services">Services</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#services">Services</a>
         </li>
         <li>
-          <a class="page-scroll" href="{{ site.url }}#brief-testimonials">Testimonials</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#brief-testimonials">Testimonials</a>
         </li>
         <li>
-          <a class="page-scroll" href="{{ site.url }}#call-to-action">Register</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#call-to-action">Register</a>
         </li>
         <li>
-          <a class="page-scroll" href="{{ site.url }}#contact">Contact</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#contact">Contact</a>
         </li>
       </ul>
     </div>
