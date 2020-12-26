@@ -5,27 +5,27 @@
             <div class="col-md-8">
                 <ul class="list-inline">
                     <li>
-                        <a href="{{ site.url }}">Home</a>
+                        <a href="{% if page.layout == 'page' %}{{ site.url }}{% else %}#home{% endif %}">Home</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="{{ site.url }}#about">About</a>
+                        <a href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#about">About</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="{{ site.url }}#services">Services</a>
+                        <a href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#services">Services</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="{{ site.url }}#brief-testimonials">Testimonials</a>
+                        <a href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#brief-testimonials">Testimonials</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="{{ site.url }}#call-to-action">Register</a>
+                        <a href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#call-to-action">Register</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>
-                        <a href="{{ site.url }}#contact">Contact</a>
+                        <a href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#contact">Contact</a>
                     </li>
                 </ul>
                 <p class="copyright text-muted small">Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
