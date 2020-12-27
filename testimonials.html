@@ -4,3 +4,11 @@ title: Testimonials
 subTitle: Saman Daneshvar's Coding Academy
 ---
 {% include brief-testimonials.html %}
+<hr>
+
+{% for testimonial in site.testimonials %}
+  {{ testimonial.content }}
+  <br>
+  {{ testimonial.name }} {{ testimonial.description }}
+  <hr>
+{% endfor %}
