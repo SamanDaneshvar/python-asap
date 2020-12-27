@@ -8,7 +8,6 @@ subTitle: Saman Daneshvar's Coding Academy
 
 {% for testimonial in site.testimonials %}
   {{ testimonial.content }}
-  <br>
-  {{ testimonial.name }} {{ testimonial.description }}
+  <p><b>{{ testimonial.name }}</b> {{ testimonial.description }}</p>
   <hr>
 {% endfor %}
