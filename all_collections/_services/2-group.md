@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Group Classes
-img: ipad.png
+img: group-classes.jpg
 category: Services
 ---
 Group classes are offerred on various levels from <q>Zero</q> (no programming experience) to Advanced (considerable programming background), as well as Master Classes.

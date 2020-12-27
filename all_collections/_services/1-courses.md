@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Courses Offered
-img: phones.png
+img: courses-offered.jpg
 category: Services
 ---
 <h3>Programming Languages</h3>

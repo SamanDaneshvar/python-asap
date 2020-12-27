@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Private Classes
-img: dog.png
+img: private-classes.jpg
 category: Services
 ---
 Private and semi-private classes are available year-round, with flexible scheduling and customizable curriculum.
