@@ -1,5 +1,4 @@
 ---
-layout: default
 name: Azar Riahi
 description: took private classes in 2019.
 category: Testimonials
