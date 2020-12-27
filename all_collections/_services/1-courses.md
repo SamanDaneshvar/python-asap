@@ -25,4 +25,4 @@ Courses are offerred in the form of group classes and private classes.
 All classes are available in English and Persian.
 For your convenience, all classes are held online.
 
-<a href="course-history">View previous courses</a>
+<a href="{{ site.url }}/course-history">View previous courses</a>
