@@ -80,6 +80,11 @@ h6 {
     }
 }
 
+.intro-message-page {
+	padding-top: 5%;
+    padding-bottom: 5%;
+}
+
 .network-name {
     text-transform: uppercase;
     font-size: 14px;
