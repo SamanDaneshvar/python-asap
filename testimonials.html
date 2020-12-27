@@ -7,7 +7,7 @@ subTitle: Saman Daneshvar's Coding Academy
 <hr>
 
 {% for testimonial in site.testimonials %}
-  {{ testimonial.content }}
+  <pre>{{ testimonial.content }}</pre>
   <p><b>{{ testimonial.name }}</b> {{ testimonial.description }}</p>
   <hr>
 {% endfor %}
