@@ -3,13 +3,24 @@ layout: page
 title: Testimonials
 subTitle: Saman Daneshvar's Coding Academy
 ---
+
+
 {% include brief-testimonials.html %}
 <hr>
 
+
+
 {% for testimonial in site.testimonials %}
-  <blockquote><i>
-    {{ testimonial.content | markdownify }}
-  </i></blockquote>
-  <p><b>{{ testimonial.name }}</b> {{ testimonial.description }}</p>
-  <hr>
+
+  <section class="container" style="padding:20px;">
+    <div class="col-lg-8 col-lg-offset-2 lead" style="margin-bottom:0;">
+      <!-- Testimonial -->
+      <blockquote><i>
+        {{ testimonial.content | markdownify }}
+      </i></blockquote>
+      <p><b>{{ testimonial.name }}</b> {{ testimonial.description }}</p>
+      <!-- /Testimonial -->
+    </div>
+  </section>
+
 {% endfor %}
