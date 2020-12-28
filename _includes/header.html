@@ -13,7 +13,14 @@
       On the other hand, relative URLs (e.g., anchor links) would only work correctly in the homepage.
       We have used the following if statement to produce a “pure” anchor link on the homepage and an absolute URL + the anchor link on other pages.
       -->
-      <a class="navbar-brand page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% else %}#home{% endif %}">{{ site.title }}</a>
+      <a class="navbar-brand page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% else %}#home{% endif %}">
+        <!-- {{ site.title }} -->
+        <span style="color:#646464;">Python</span>
+        <span style="color:#4086f4;">A</span>
+        <span style="color:#eb4131;">S</span>
+        <span style="color:#fbbd00;">A</span>
+        <span style="color:#31aa52;">P</span>
+      </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
