@@ -23,19 +23,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">  
         <li>
-          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#about">About</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}/{% endif %}#about">About</a>
         </li>      
         <li>
-          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#services">Services</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}/{% endif %}#services">Services</a>
         </li>
         <li>
-          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#brief-testimonials">Testimonials</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}/testimonials{% else %}#brief-testimonials{% endif %}">Testimonials</a>
         </li>
         <li>
-          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#call-to-action">Register</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}/register{% else %}#call-to-action{% endif %}">Register</a>
         </li>
         <li>
-          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% endif %}#contact">Contact</a>
+          <a class="page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}/{% endif %}#contact">Contact</a>
         </li>
       </ul>
     </div>
