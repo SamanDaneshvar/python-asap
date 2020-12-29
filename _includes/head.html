@@ -9,10 +9,8 @@
     <title>
         {% if page.title_override %}
             {{ page.title }}
-        {% elsif page.title %}
-            {{ page.title }}
         {% else %}
-            {{ site.title }}
+            {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
         {% endif %}
     </title>
     
