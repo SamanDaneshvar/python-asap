@@ -8,7 +8,7 @@
 
     <title>
         {% if page.title_override %}
-            {{ page.title }}
+            {{ page.title_override }}
         {% else %}
             {% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
         {% endif %}
