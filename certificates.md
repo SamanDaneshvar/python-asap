@@ -52,34 +52,13 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
 <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
-
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
 <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
 <!-- Add Firebase products that you want to use -->
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
-
-
-
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
 
 
 <!-- Previously loaded Firebase SDKs -->
-
-<script>
-  // The app's Firebase project configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCZ_QSTi7a41zQa4wtO-c53tpK1PVnFxYM",
-  authDomain: "python-certificates.firebaseapp.com",
-  projectId: "python-certificates",
-  storageBucket: "python-certificates.appspot.com",
-  messagingSenderId: "337313845571",
-  appId: "1:337313845571:web:c84ee85fa623a098f81ff6",
-  measurementId: "G-Z6WM0SCQ0T"
-};
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-</script>
+<script defer src="{{ site.url }}/assets/js/init-firebase.js"></script>
