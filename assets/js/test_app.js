@@ -26,6 +26,8 @@ get_button.addEventListener("click", function() {
       output_header.innerText = "The certificate number: " + my_data.get("certificate number")
     } else {
       console.log("It seems like the document doesn't exist!")
+      console.log("doc: ", doc)
+      console.log("doc.data: ", doc.data())
     }
   }).catch(function(error) {
     console.log("Got an error: ", error);
