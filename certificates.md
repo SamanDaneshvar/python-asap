@@ -55,7 +55,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
 <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-<!-- Add Firebase products that you want to use -->
+<!-- Add any other Firebase products that you want to use -->
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
 
