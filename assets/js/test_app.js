@@ -29,8 +29,6 @@ function populate_certificate_info(document) {
   display_first_name.innerHTML = document.get("first_name");
   display_last_name.innerHTML = document.get("last_name");
   display_certificate_number.innerHTML = document.get("certificate_number");
-  
-  display_status.innerHTML = document.get("certificate_number");
 }
 
 
