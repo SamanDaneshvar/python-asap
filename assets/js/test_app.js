@@ -52,11 +52,14 @@ search_by_cert_button.addEventListener("click", function() {
 
 search_by_name_button.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
-  students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value).where("date_of_birth", "==", query_date_of_birth.value)
+  students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value)
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(student) {
         console.log("Student data:", student.data());
+        console.log("Date of birth:", student.get(""date_of_birth));
+        console.log("Query date of birth:", query_date_of_birth.value)
+        console.log(query_date_of_birth)
         for (certificate of student.get("certificates")) {
           console.log("Certificate number in the database:", certificate.get("certificate_number"));
         }
