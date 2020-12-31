@@ -20,8 +20,8 @@ get_button.addEventListener("click", function() {
         console.log("Certificate number in the database:", doc.get("certificate_number"))
         
         // Display the results
-        display_first_name.innerHTML = doc.get("first_name")
-        display_last_name.innerHTML = doc.get("last_name")
+        // display_first_name.innerHTML = doc.get("first_name")
+        // display_last_name.innerHTML = doc.get("last_name")
         display_certificate_number.innerHTML = doc.get("certificate_number")
       });
     })
