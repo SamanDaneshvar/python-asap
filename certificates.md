@@ -68,6 +68,6 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 
 <h1 id="heading"> Certificate number:</h1>
-<input type="textfield" id="certificate_number" />
+<input id="certificate_number" type="textfield" />
 <button id="get_button">Get</button>
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
