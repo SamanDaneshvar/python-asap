@@ -26,17 +26,6 @@ subTitle: Saman Daneshvar's Coding Academy
 **Grade** | [Certificate of Participation]()
 **Achievability** | 12/12
 
-&nbsp; | &nbsp;
-:- | :-
-**Participant's Legal Name** | Jane Black
-**Certificate Number** | 2012-7362
-**Date Issued** | December 6, 2020
-**Status** | Valid
-**Course Name** | Zero to Intermediate Python Programming
-**Course Length** | 18 hours
-**Curriculum** | [Z2I Python]()
-**Grade** | [Certificate of Proficiency]()
-**Achievability** | 4/12
 
 ## Did not find the certificate you were trying to verify?
 [Request an official confirmation]() or [report a false claim]().
@@ -46,6 +35,8 @@ subTitle: Saman Daneshvar's Coding Academy
 
 Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! If you have successfully completed a course, you are entitled to a certificate.
 -->
+
+
 
 
 
@@ -71,3 +62,15 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <input id="certificate_number" type="textfield" />
 <button id="get_button">Get</button>
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
+
+&nbsp; | &nbsp;
+:- | :-
+**Participant's Legal Name** | <div id="first_name"></div> <div id="last_name"></div>
+**Certificate Number** | <div id="certificate_number" />
+**Date Issued** | <div id="date_of_issue">
+**Status** | <div id="status">
+**Course Name** | <div id="course_name">
+**Course Length** | <div id="course_length">
+**Curriculum** | [<div id="course_curriculum">]()
+**Grade** | [<div id="certification_grade">]()
+**Achievability** | <div id="achievability">
