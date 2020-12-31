@@ -86,7 +86,8 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp));
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificates 0:", student.get("certificates")[0]);
-        console.log("Certificate 0 data:", student.get("certificates")[0].data());
+        console.log("Certificate 0 get:", student.get("certificates")[0].get());
+        console.log("Certificate 0 data:", student.get("certificates")[0].get().data());
         
         
         for (certificate of student.get("certificates")) {
