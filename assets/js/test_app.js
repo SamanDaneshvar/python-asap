@@ -66,7 +66,7 @@ search_by_name_button.addEventListener("click", function() {
         var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date)
         console.log("Query date of birth as JS Date:", query_dob_date)
         console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
-        console.log("Query === Date of birth?", date_of_birth.isequal(query_dob_timestamp))
+        console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp))
         
         for (certificate of student.get("certificates")) {
           console.log("Certificate number in the database:", certificate.get("certificate_number"));
