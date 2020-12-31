@@ -77,8 +77,8 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <strong>Course Length:</strong>
 <div id="course_length" />
 <strong>Curriculum:</strong>
-<a id="course_curriculum" href=""></a>
+<div><a id="course_curriculum" href="">A</a></div>
 <strong>Grade:</strong>
-<a id="certification_grade" href=""></a>
+<div><a id="certification_grade" href="">B</a><div>
 <strong>Achievability:</strong>
-<div id="achievability" />
+<div id="achievability">C</div>
