@@ -8,7 +8,7 @@ const get_button = document.querySelector("#get_button");
 
 add_button.addEventListener("click", function() {
   const text_to_send = input_text_field.value;
-  console.log("Sending " + text_to_send + " to Firestore.");
+  console.log("Adding " + text_to_send + " to Firestore.");
   coll_ref.add({
     "certificate number": text_to_send
   }).then(function() {
@@ -19,10 +19,13 @@ add_button.addEventListener("click", function() {
 })
 
 get_button.addEventListener("click", function() {
+  console.log("Getting the data from Firestore.");
   coll_ref.get().then(function(doc) {
     if (doc && doc.exists) {
       const my_data = doc.data();
       output_header.innerText = "The certificate number: " + my_data.get("certificate number")
+    } else {
+      console.log("It seems like the document doesn't exist!")
     }
   }).catch(function(error) {
     console.log("Got an error: ", error);
