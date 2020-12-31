@@ -58,7 +58,9 @@ search_by_name_button.addEventListener("click", function() {
       querySnapshot.forEach(function(student) {
         console.log("Student data:", student.data());
         console.log("Date of birth:", student.get("date_of_birth").toDate());
-        console.log("Query date of birth:", query_date_of_birth.value)
+        console.log("Query date of birth:", query_date_of_birth.value);
+        console.log("Query date converted to timestamp:", firebase.firestore.Timestamp.fromDate(query_date_of_birth.value));
+        
         for (certificate of student.get("certificates")) {
           console.log("Certificate number in the database:", certificate.get("certificate_number"));
         }
