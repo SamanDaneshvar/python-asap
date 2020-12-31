@@ -64,6 +64,7 @@ search_by_name_button.addEventListener("click", function() {
         }
         
         // %%% Create links that would display a certificate upon click.
+      });
     })
     .catch(function(error) {
       console.log("Error getting documents:", error);
