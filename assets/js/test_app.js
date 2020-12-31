@@ -22,7 +22,7 @@ get_button.addEventListener("click", function() {
   coll_ref.get().then(function(doc) {
     if (doc && doc.exists) {
       const my_data = doc.data();
-      output_header.innerText = "The certificate number: " + my_data."certificate number"
+      output_header.innerText = "The certificate number: " + my_data.get("certificate number")
     }
   }).catch(function(error) {
     console.log("Got an error: ", error);
