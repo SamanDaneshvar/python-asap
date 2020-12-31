@@ -60,7 +60,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <input id="query_cert" type="textfield" />
 <button id="search_by_cert_button">Search</button>
 
-<h3>Search by name and date of birth:</h3>
+<h3>Search by name and date of birth</h3>
 <label for="query_first_name">First name:</label>
 <input id="query_first_name" type="textfield" />
 <label for="query_last_name">Last name:</label>
@@ -74,15 +74,14 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 ---
 <h3>Certificate Details</h3>
-
-Field | Value
+&nbsp; | &nbsp;
 --- | ---
-<strong>Participant's Legal Name:</strong> | <span id="first_name" /> <span id="last_name" />
-<strong>Certificate Number:</strong> | <span id="certificate_number" />
-<strong>Date Issued:</strong> | <span id="date_of_issue" />
-<strong>Status:</strong> | <span id="status" />
-<strong>Course Name:</strong> | <span id="course_name" />
-<strong>Course Length:</strong> | <span id="course_length" />
-<strong>Curriculum:</strong> | <a href=""><span id="course_curriculum" /></a>
-<strong>Grade:</strong> | <a href=""><span id="certification_grade" /></a>
-<strong>Achievability:</strong> | <span id="achievability" />
+Participant's Legal Name: | <span id="first_name" /> <span id="last_name" />
+Certificate Number:       | <span id="certificate_number" />
+Date Issued:              | <span id="date_of_issue" />
+Status:                   | <span id="status" />
+Course Name:              | <span id="course_name" />
+Course Length:            | <span id="course_length" />
+Curriculum:    | <a href=""><span id="course_curriculum" /></a>
+Grade:         | <a href=""><span id="certification_grade" /></a>
+Achievability:            | <span id="achievability" />
