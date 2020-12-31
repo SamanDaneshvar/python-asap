@@ -67,6 +67,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 :- | :-
 **Participant's Legal Name** | <div id="first_name"></div> <div id="last_name"></div>
 
+
 **Participant's Legal Name**: <div id="first_name"></div> <div id="last_name"></div>
 **Certificate Number**: <div id="certificate_number" />
 **Date Issued**: <div id="date_of_issue" />
