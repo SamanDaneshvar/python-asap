@@ -1,3 +1,18 @@
+// The app's Firebase project configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCZ_QSTi7a41zQa4wtO-c53tpK1PVnFxYM",
+  authDomain: "python-certificates.firebaseapp.com",
+  projectId: "python-certificates",
+  storageBucket: "python-certificates.appspot.com",
+  messagingSenderId: "337313845571",
+  appId: "1:337313845571:web:c84ee85fa623a098f81ff6",
+  measurementId: "G-Z6WM0SCQ0T"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
 const firestore = firebase.firestore();
 const certificates_ref = firestore.collection("certificates");
 const students_ref = firestore.collection("students");
@@ -63,7 +78,7 @@ search_by_name_button.addEventListener("click", function() {
         
         console.log("Query date of birth as text:", query_dob_text.value);
         var query_dob_date = new Date(query_dob_text.value + "T00:00:00-05:00")
-        var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date)
+        var query_dob_timestamp = firestore.Timestamp.fromDate(query_dob_date)
         console.log("Query date of birth as JS Date:", query_dob_date)
         console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp))
