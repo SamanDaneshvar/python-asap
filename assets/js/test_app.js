@@ -25,7 +25,7 @@ const query_first_name = document.querySelector("#query_first_name");
 const query_last_name = document.querySelector("#query_last_name");
 const query_dob_text = document.querySelector("#query_date_of_birth");
 const search_by_name_button = document.querySelector("#search_by_name_button");
-// For displaying the retrieved certificate info
+// For displaying the retrieved student and certificate info
 const display_first_name = document.querySelector("#first_name");
 const display_last_name = document.querySelector("#last_name");
 const display_certificate_number = document.querySelector("#certificate_number");
@@ -52,11 +52,11 @@ search_by_cert_button.addEventListener("click", function() {
   certificates_ref.where("certificate_number", "==", query_certificate_number.value)
     .get()
     .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-        console.log(doc.data());
-        console.log("Certificate number in the database:", doc.get("certificate_number"));
+      querySnapshot.forEach(function(certificate) {
+        console.log(certificate.data());
+        console.log("Certificate number in the database:", certificate.get("certificate_number"));
         
-        populate_certificate_info(doc);
+        populate_certificate_info(certificate);
       });
     })
     .catch(function(error) {
@@ -66,6 +66,13 @@ search_by_cert_button.addEventListener("click", function() {
 
 
 search_by_name_button.addEventListener("click", function() {
+  // Convert the query date of birth to a Firestore timestamp object
+  var query_dob_date = new Date(query_dob_text.value + "T00:00:00-05:00");
+  var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
+  console.log("Query date of birth as JS Date:", query_dob_date);
+  console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
+  
+  // Query the *students* collection
   console.log("Getting the data from Firestore.");
   students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value)
     .get()
@@ -75,12 +82,6 @@ search_by_name_button.addEventListener("click", function() {
         
         var date_of_birth = student.get("date_of_birth")
         console.log("Date of birth:", date_of_birth);
-        
-        console.log("Query date of birth as text:", query_dob_text.value);
-        var query_dob_date = new Date(query_dob_text.value + "T00:00:00-05:00");
-        var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
-        console.log("Query date of birth as JS Date:", query_dob_date);
-        console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp));
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificates 0:", student.get("certificates")[0]);
@@ -91,7 +92,7 @@ search_by_name_button.addEventListener("click", function() {
           console.log("Certificate number in the database:", certificate.get("certificate_number"));
         }
         
-        // %%% Create links that would display a certificate upon click.
+        // %%% Create links that would display a certificate upon clicking.
       });
     })
     .catch(function(error) {
