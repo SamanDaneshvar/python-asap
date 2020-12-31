@@ -7,7 +7,7 @@ const get_button = document.querySelector("#get_button");
 
 get_button.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
-  certificates_ref.where("certificate_number", "==", input_certificate_number)
+  certificates_ref.where("certificate_number", "==", input_certificate_number.value)
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
