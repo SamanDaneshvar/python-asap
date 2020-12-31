@@ -8,7 +8,7 @@ const search_by_cert_button = document.querySelector("#search_by_cert_button");
 // For search by name and date of birth
 const query_first_name = document.querySelector("#query_first_name");
 const query_last_name = document.querySelector("#query_last_name");
-const query_date_of_birth_text = document.querySelector("#query_date_of_birth");
+const query_dob_text = document.querySelector("#query_date_of_birth");
 const search_by_name_button = document.querySelector("#search_by_name_button");
 // For displaying the retrieved certificate info
 const display_first_name = document.querySelector("#first_name");
@@ -58,14 +58,15 @@ search_by_name_button.addEventListener("click", function() {
       querySnapshot.forEach(function(student) {
         console.log("Student data:", student.data());
         
-        console.log("Date of birth as JS Date:", student.get("date_of_birth").toDate());
+        var date_of_birth = student.get("date_of_birth")
+        console.log("Date of birth:", date_of_birth);
         
-        console.log("Query date of birth as text:", query_date_of_birth_text.value);
-        var query_date_of_birth = new Date(query_date_of_birth_text.value + "T00:00:00-05:00")
-        var query_date_of_birth_timestamp = firebase.firestore.Timestamp.fromDate(query_date_of_birth)
-        console.log("Query date of birth as JS Date:", query_date_of_birth)
-        console.log("Query date of birth as Firebase timestamp:", query_date_of_birth_timestamp);
-        console.log("Query === Date of birth?", student.get("date_of_birth").isequal(query_date_of_birth_timestamp))
+        console.log("Query date of birth as text:", query_dob_text.value);
+        var query_dob_date = new Date(query_dob_text.value + "T00:00:00-05:00")
+        var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date)
+        console.log("Query date of birth as JS Date:", query_dob_date)
+        console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
+        console.log("Query === Date of birth?", date_of_birth.isequal(query_dob_timestamp))
         
         for (certificate of student.get("certificates")) {
           console.log("Certificate number in the database:", certificate.get("certificate_number"));
