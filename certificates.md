@@ -58,7 +58,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 
 
-<h1> Search by certificate number:</h1>
+<h3> Search by certificate number:</h3>
 <input id="certificate_number" type="textfield" />
 <button id="get_button">Get</button>
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
