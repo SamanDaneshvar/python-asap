@@ -1,5 +1,5 @@
 const firestore = firebase.firestore();
-const collection_ref = firestore.collection("certificates");
+const collection_ref = firestore.collection("certificates/Zo5zllvZevVeq2v8xmvz");
 
 const output_header = document.querySelector("#heading");
 const input_text_field = document.querySelector("#certificate_number");
