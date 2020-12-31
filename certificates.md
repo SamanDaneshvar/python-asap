@@ -59,7 +59,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 
 <h3> Search by certificate number:</h3>
-<input id="certificate_number" type="textfield" />
+<input id="query_certificate" type="textfield" />
 <button id="get_button">Get</button>
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
@@ -67,6 +67,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 :- | :-
 **Participant's Legal Name** | <div id="first_name"></div> <div id="last_name"></div>
 
+---
 
 **Participant's Legal Name**: <div id="first_name">A</div> <div id="last_name">B</div>
 **Certificate Number**: <div id="certificate_number" />
