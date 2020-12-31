@@ -87,6 +87,7 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificate 0:", student.get("certificates")[0]);
         console.log("Certificate 0 get:", student.get("certificates")[0].get());
+        console.log("Certificate 0 get:", await student.get("certificates")[0].get());
         console.log("Certificate 0 as JSON:", student.get("certificates")[0].get().toJSON());
         
         
