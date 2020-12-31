@@ -83,6 +83,7 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp));
         console.log("Certificates:", student.get("certificates"));
+        console.log("Certificates 0:", student.get("certificates")[0]);
         
         
         for (certificate of student.get("certificates")) {
