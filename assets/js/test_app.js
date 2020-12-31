@@ -78,14 +78,15 @@ search_by_name_button.addEventListener("click", function() {
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(student) {
+        console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
         
-        var date_of_birth = student.get("date_of_birth")
+        var date_of_birth = student.get("date_of_birth");
         console.log("Date of birth:", date_of_birth);
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp));
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificates 0:", student.get("certificates")[0]);
-        console.log("Get certificate 0:", student.get("certificates")[0].get());
+        console.log("Certificate 0 data:", student.get("certificates")[0].data());
         
         
         for (certificate of student.get("certificates")) {
