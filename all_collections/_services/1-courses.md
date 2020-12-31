@@ -17,8 +17,8 @@ category: Services
 <h3>Subject Matters</h3>
 <ul>
   <li>Programming (<q>Zero</q>, Intermediate, Advanced, Master Class)</li>
-  <li>Data Analysis (Python libraries: NumPy, Pandas, Matplotlib, etc.)</li>
-  <li>Machine Learning (various levels)</li>
+  <li>Data Analysis (Python libraries include <i>NumPy</i>, <i>Pandas</i>, and <i>Matplotlib</i>.)</li>
+  <li>Machine Learning (Classical ML algorithms, Artificial Neural Networks, Deep Learning. Python libraries include scikit-learn, Keras, and TensorFlow.)</li>
 </ul>
 
 Courses are offerred in the form of group classes and private classes.
