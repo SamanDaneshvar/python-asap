@@ -66,13 +66,19 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 
 <strong>Participant's Legal Name:</strong> <span id="first_name"></span> <span id="last_name"></span>
+
 <strong>Certificate Number:</strong> <span id="certificate_number"></span>
 
 <strong>Date Issued:</strong> <span id="date_of_issue" />
+
 <strong>Status:</strong> <span id="status" />
+
 <strong>Course Name:</strong> <span id="course_name" />
+
 <strong>Course Length:</strong> <span id="course_length" />
 
 <strong>Curriculum:</strong> <a href=""><span id="course_curriculum">A</span></a>
+
 <strong>Grade:</strong> <a href=""><span id="certification_grade">B</span></a>
+
 <strong>Achievability:</strong> <span id="achievability">C</span>
