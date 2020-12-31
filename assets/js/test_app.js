@@ -74,7 +74,7 @@ search_by_name_button.addEventListener("click", function() {
   
   // Query the *students* collection
   console.log("Getting the data from Firestore.");
-  students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value)
+  students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value).where("date_of_birth", "==", query_dob_timestamp)
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(student) {
