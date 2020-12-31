@@ -75,20 +75,14 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 ---
 <h3>Certificate Details</h3>
 
-<strong>Participant's Legal Name:</strong> <span id="first_name" /> <span id="last_name" />
-
-<strong>Certificate Number:</strong> <span id="certificate_number" />
-
-<strong>Date Issued:</strong> <span id="date_of_issue" />
-
-<strong>Status:</strong> <span id="status" />
-
-<strong>Course Name:</strong> <span id="course_name" />
-
-<strong>Course Length:</strong> <span id="course_length" />
-
-<strong>Curriculum:</strong> <a href=""><span id="course_curriculum" /></a>
-
-<strong>Grade:</strong> <a href=""><span id="certification_grade" /></a>
-
-<strong>Achievability:</strong> <span id="achievability" />
+Field | Value
+--- | ---
+<strong>Participant's Legal Name:</strong> | <span id="first_name" /> <span id="last_name" />
+<strong>Certificate Number:</strong> | <span id="certificate_number" />
+<strong>Date Issued:</strong> | <span id="date_of_issue" />
+<strong>Status:</strong> | <span id="status" />
+<strong>Course Name:</strong> | <span id="course_name" />
+<strong>Course Length:</strong> | <span id="course_length" />
+<strong>Curriculum:</strong> | <a href=""><span id="course_curriculum" /></a>
+<strong>Grade:</strong> | <a href=""><span id="certification_grade" /></a>
+<strong>Achievability:</strong> | <span id="achievability" />
