@@ -64,21 +64,15 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
 
-<strong>Participant's Legal Name:</strong>
-<div id="first_name"></div> <div id="last_name"></div>
-<strong>Certificate Number:</strong>
-<div id="certificate_number"></div>
-<strong>Date Issued:</strong>
-<div id="date_of_issue" />
-<strong>Status:</strong>
-<div id="status" />
-<strong>Course Name:</strong>
-<div id="course_name" />
-<strong>Course Length:</strong>
-<div id="course_length" />
-<strong>Curriculum:</strong>
-<div><a id="course_curriculum" href="">A</a></div>
-<strong>Grade:</strong>
-<div><a id="certification_grade" href="">B</a><div>
-<strong>Achievability:</strong>
-<div id="achievability">C</div>
+
+<strong>Participant's Legal Name:</strong> <span id="first_name"></span> <span id="last_name"></span>
+<strong>Certificate Number:</strong> <span id="certificate_number"></span>
+
+<strong>Date Issued:</strong> <span id="date_of_issue" />
+<strong>Status:</strong> <span id="status" />
+<strong>Course Name:</strong> <span id="course_name" />
+<strong>Course Length:</strong> <span id="course_length" />
+
+<strong>Curriculum:</strong> <a href=""><span id="course_curriculum">A</span></a>
+<strong>Grade:</strong> <a href=""><span id="certification_grade">B</span></a>
+<strong>Achievability:</strong> <span id="achievability">C</span>
