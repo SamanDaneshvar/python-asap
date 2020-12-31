@@ -19,4 +19,4 @@ get_button.addEventListener("click", function() {
     .catch(function(error) {
       console.log("Error getting documents:", error);
     });
-}
+})
