@@ -25,16 +25,16 @@ subTitle: Saman Daneshvar's Coding Academy
 
 <h3>Search by certificate number</h3>
 <label for="query_cert">Certificate number:</label>
-<input id="query_cert" type="textfield" />
+<input id="query_cert" />
 <button id="search_by_cert_button">Search</button>
 
 <h3>Search by name and date of birth</h3>
 <label for="query_first_name">First name:</label>
-<input id="query_first_name" type="textfield" />
+<input id="query_first_name" />
 <label for="query_last_name">Last name:</label>
-<input id="query_last_name" type="textfield" />
+<input id="query_last_name" />
 <label for="query_date_of_birth">Date of birth:</label>
-<input id="query_date_of_birth" type="textfield" />
+<input id="query_date_of_birth" type="date" />
 <button id="search_by_name_button">Search</button>
 
 ---
