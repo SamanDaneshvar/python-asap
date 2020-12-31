@@ -14,6 +14,8 @@ const search_by_name_button = document.querySelector("#search_by_name_button");
 const display_first_name = document.querySelector("#first_name");
 const display_last_name = document.querySelector("#last_name");
 const display_certificate_number = document.querySelector("#certificate_number");
+
+const display_status = document.querySelector("#status");
 // ...
 
 
@@ -24,9 +26,11 @@ function populate_certificate_info(document) {
   // Returns:
   //   None
   
-  display_first_name.innerHTML = document.get("first_name")
-  display_last_name.innerHTML = document.get("last_name")
-  display_certificate_number.innerHTML = document.get("certificate_number")
+  display_first_name.innerHTML = document.get("first_name");
+  display_last_name.innerHTML = document.get("last_name");
+  display_certificate_number.innerHTML = document.get("certificate_number");
+  
+  display_status.innerHTML = document.get("certificate_number");
 }
 
 
@@ -36,8 +40,8 @@ search_by_cert_button.addEventListener("click", function() {
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        console.log(doc.data())
-        console.log("Certificate number in the database:", doc.get("certificate_number"))
+        console.log(doc.data());
+        console.log("Certificate number in the database:", doc.get("certificate_number"));
         
         populate_certificate_info(doc);
       });
@@ -54,9 +58,9 @@ search_by_name_button.addEventListener("click", function() {
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(student) {
-        console.log("Student data:", student.data())
+        console.log("Student data:", student.data());
         for (certificate of student.get("certificates")) {
-          console.log("Certificate number in the database:", certificate.get("certificate_number"))
+          console.log("Certificate number in the database:", certificate.get("certificate_number"));
         }
         
         // %%% Create links that would display a certificate upon click.
