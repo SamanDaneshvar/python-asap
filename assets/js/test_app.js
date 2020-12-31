@@ -87,6 +87,16 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificates 0:", student.get("certificates")[0]);
         console.log("Certificate 0 get:", student.get("certificates")[0].get());
+        console.log("Certificate 0 key:", student.get("certificates")[0].key);
+        
+        student.get("certificates")[0]
+          .get()
+          .then(function(q) {
+            q.forEach(function(doc) {
+              console.log("Some doc:", doc);
+            });
+          })
+        
         console.log("Certificate 0 data:", student.get("certificates")[0].get().data());
         
         
