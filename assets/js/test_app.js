@@ -13,9 +13,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-const firestore = firebase.firestore();
-const certificates_ref = firestore.collection("certificates");
-const students_ref = firestore.collection("students");
+const db = firebase.firestore();
+const certificates_ref = db.collection("certificates");
+const students_ref = db.collection("students");
 
 // For search by certificate number
 const query_certificate_number = document.querySelector("#query_cert");
@@ -78,7 +78,7 @@ search_by_name_button.addEventListener("click", function() {
         
         console.log("Query date of birth as text:", query_dob_text.value);
         var query_dob_date = new Date(query_dob_text.value + "T00:00:00-05:00")
-        var query_dob_timestamp = firestore.Timestamp.fromDate(query_dob_date)
+        var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date)
         console.log("Query date of birth as JS Date:", query_dob_date)
         console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp))
