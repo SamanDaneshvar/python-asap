@@ -63,27 +63,22 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <button id="get_button">Get</button>
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
-&nbsp; | &nbsp;
-:- | :-
-**Participant's Legal Name** | <div id="first_name"></div> <div id="last_name"></div>
 
----
-
-**Participant's Legal Name**:
+<strong>Participant's Legal Name</strong>
 <div id="first_name"></div> <div id="last_name"></div>
-**Certificate Number**
-<div id="certificate_number">C</div>
-**Date Issued**
+<strong>Certificate Number:</strong>
+<div id="certificate_number"></div>
+<strong>Date Issued:</strong>
 <div id="date_of_issue" />
-**Status**
+<strong>Status:</strong>
 <div id="status" />
-**Course Name**
+<strong>Course Name:</strong>
 <div id="course_name" />
-**Course Length**
+<strong>Course Length:</strong>
 <div id="course_length" />
-**Curriculum**
+<strong>Curriculum:</strong>
 [<div id="course_curriculum" />]()
-**Grade**
+<strong>Grade:</strong>
 [<div id="certification_grade" />]()
-**Achievability**
+<strong>Achievability:</strong>
 <div id="achievability" />
