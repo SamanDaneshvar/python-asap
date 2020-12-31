@@ -11,7 +11,6 @@ get_button.addEventListener("click", function() {
     .get()
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
-        console.log(doc)
         console.log(doc.data())
         console.log("Certificate number in the database:", doc.get("certificate_number"))
       });
