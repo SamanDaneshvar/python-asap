@@ -8,6 +8,7 @@ subTitle: Saman Daneshvar's Coding Academy
 - Search by name and date of birth: John • Smith • 1985-01-08
 - Search by certificate code: 2012-0486
 
+<!--
 | Legal Name | Certificate Code |
 | :- | :- |
 | John Smith | 2012-0486 |
@@ -44,7 +45,7 @@ subTitle: Saman Daneshvar's Coding Academy
 [Report an issue with the database]() (e.g., false or missing information).
 
 Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! If you have successfully completed a course, you are entitled to a certificate.
-
+-->
 
 
 
@@ -62,3 +63,8 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 <!-- Previously loaded Firebase SDKs -->
 <script defer src="{{ site.url }}/assets/js/init-firebase.js"></script>
+
+
+
+
+Enter:
