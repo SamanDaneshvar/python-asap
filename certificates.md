@@ -67,7 +67,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 
 
-<h1> Enter:</h1>
+<h1 id="heading"> Enter:</h1>
 <input type="textfield" id="certificate_number" />
 <button id="send_button">Send Request</button>
-<script src="{{ site.url }}/assets/js/test_app.js"></script>
+<script defer src="{{ site.url }}/assets/js/test_app.js"></script>
