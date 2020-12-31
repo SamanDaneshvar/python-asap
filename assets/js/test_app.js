@@ -1,22 +1,22 @@
 const firestore = firebase.firestore();
-const coldoc_ref = firestore.collection("certificates").doc("Zo5zllvZevVeq2v8xmvz");
+const certificates_ref = firestore.collection("certificates");
 
 const output_header = document.querySelector("#heading");
-const input_text_field = document.querySelector("#certificate_number");
+const input_certificate_number = document.querySelector("#certificate_number");
 const get_button = document.querySelector("#get_button");
 
 get_button.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
-  coldoc_ref.get().then(function(doc) {
-    if (doc.exists) {
-      console.log("Document data:", doc.data());
-      output_header.innerText = "Certificate number found: " + doc.get("certificate_number");
-    } else {
-      console.log("The document does not exist!")
-      console.log("doc: ", doc)
-      output_header.innerText = "No such certificate number found."
-    }
-  }).catch(function(error) {
-    console.log("Error getting document: ", error);
-  });
-})
+  certificates_ref.where("certificate_number", "==", input_certificate_number)
+    .get()
+    .then(function(querySnapshot) {
+      querySnapshot.forEach(function(doc) {
+        console.log(doc)
+        console.log(doc.data())
+        console.log("Certificate number in the database:", doc.get("certificate_number"))
+      });
+    })
+    .catch(function(error) {
+      console.log("Error getting documents:", error);
+    });
+}
