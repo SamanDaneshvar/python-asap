@@ -64,7 +64,7 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
 
-<strong>Participant's Legal Name</strong>
+<strong>Participant's Legal Name:</strong>
 <div id="first_name"></div> <div id="last_name"></div>
 <strong>Certificate Number:</strong>
 <div id="certificate_number"></div>
