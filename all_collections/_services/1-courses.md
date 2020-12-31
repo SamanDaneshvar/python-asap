@@ -16,7 +16,7 @@ category: Services
 
 <h3>Subject Matters</h3>
 <ul>
-  <li>Programming (<q>Zero</q>, Intermediate, Advanced, Master Class)</li>
+  <li>**Programming:** <q>Zero</q>, Intermediate, Advanced, Master Class</li>
   <li>Data Analysis (Python libraries include <i>NumPy</i>, <i>Pandas</i>, and <i>Matplotlib</i>.)</li>
   <li>Machine Learning (Classical ML algorithms, Artificial Neural Networks, Deep Learning. Python libraries include <i>scikit-learn</i>, <i>Keras</i>, and <i>TensorFlow</i>.)</li>
 </ul>
