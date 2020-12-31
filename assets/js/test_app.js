@@ -23,7 +23,7 @@ get_button.addEventListener("click", function() {
   coll_ref.get().then(function(doc) {
     if (doc && doc.exists) {
       const my_data = doc.data();
-      output_header.innerText = "The certificate number: " + my_data.get("certificate number")
+      output_header.innerText = "The certificate number: " + doc.get("certificate number")
     } else {
       console.log("It seems like the document doesn't exist!")
       console.log("doc: ", doc)
