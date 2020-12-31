@@ -85,17 +85,16 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Date of birth:", date_of_birth);
         console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp));
         console.log("Certificates:", student.get("certificates"));
-        console.log("Certificates 0:", student.get("certificates")[0]);
+        console.log("Certificate 0:", student.get("certificates")[0]);
         console.log("Certificate 0 get:", student.get("certificates")[0].get());
-        console.log("Certificate 0 key:", student.get("certificates")[0].key);
+        console.log("Certificate 0 as string:", student.get("certificates")[0].toString());
         
         student.get("certificates")[0]
           .get()
-          .then(function(q) {
-            q.forEach(function(doc) {
-              console.log("Some doc:", doc);
-            });
-          })
+          .then(console.log("Some doc:", doc))
+          .catch(function(error) {
+            console.log("Error:", error);
+          });
         
         console.log("Certificate 0 data:", student.get("certificates")[0].get().data());
         
