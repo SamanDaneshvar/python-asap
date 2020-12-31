@@ -60,7 +60,14 @@ search_by_name_button.addEventListener("click", function() {
         
         console.log("Date of birth as JS Date:", student.get("date_of_birth").toDate());
         console.log("Query date of birth as text:", query_date_of_birth_text.value);
-        var query_date_of_birth = new Date(query_date_of_birth_text + "T00:00:00-05:00")
+        
+        console.log("TEMP:", query_date_of_birth_text + "T00:00:00-05:00")
+        console.log(new Date("1991-11-15"))
+        console.log(new Date("1991-11-15T00:00:00"))
+        console.log(new Date("1991-11-15T00:00:00Z"))
+        console.log(new Date("1991-11-15T00:00:00-05:00"))
+        
+        var query_date_of_birth = new Date("1991-11-15T00:00:00-05:00")
         console.log("Query date of birth as JS Date:", query_date_of_birth)
         console.log("Query date of birth as Firebase timestamp:", firebase.firestore.Timestamp.fromDate(query_date_of_birth));
         
