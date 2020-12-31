@@ -15,8 +15,7 @@ subTitle: Saman Daneshvar's Coding Academy
 <script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
 
 
-<!-- Previously loaded Firebase SDKs -->
-<script defer src="{{ site.url }}/assets/js/init-firebase.js"></script>
+<!-- Firebase SDKs are loaded before this -->
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
 
