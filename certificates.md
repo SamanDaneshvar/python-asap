@@ -3,40 +3,6 @@ layout: page
 title: Certificates
 subTitle: Saman Daneshvar's Coding Academy
 ---
-## Verify a certificate
-
-<!--
-| Legal Name | Certificate Code |
-| :- | :- |
-| John Smith | 2012-0486 |
-| Jane Black | 2012-7362 |
-
-&nbsp; | &nbsp;
-:- | :-
-**Participant's Legal Name** | John Smith
-**Certificate Number** | 2012-0486
-**Date Issued** | December 5, 2020
-**Status** | Valid
-**Course Name** | Zero to Intermediate Python Programming
-**Course Length** | 18 hours
-**Curriculum** | [Z2I Python]()
-**Grade** | [Certificate of Participation]()
-**Achievability** | 12/12
-
-
-## Did not find the certificate you were trying to verify?
-[Request an official confirmation]() or [report a false claim]().
-
-## Did not find your own certificate?
-[Report an issue with the database]() (e.g., false or missing information).
-
-Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! If you have successfully completed a course, you are entitled to a certificate.
--->
-
-
-
-
-
 
 <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
@@ -54,6 +20,8 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
 
+
+# Verify a certificate
 
 <h3>Search by certificate number</h3>
 <label for="query_cert">Certificate number:</label>
@@ -85,3 +53,37 @@ Course Length:            | <span id="course_length" />
 Curriculum:    | <a href=""><span id="course_curriculum" /></a>
 Grade:         | <a href=""><span id="certification_grade" /></a>
 Achievability:            | <span id="achievability" />
+
+
+
+
+
+
+
+<!--
+| Legal Name | Certificate Code |
+| :- | :- |
+| John Smith | 2012-0486 |
+| Jane Black | 2012-7362 |
+
+&nbsp; | &nbsp;
+:- | :-
+**Participant's Legal Name** | John Smith
+**Certificate Number** | 2012-0486
+**Date Issued** | December 5, 2020
+**Status** | Valid
+**Course Name** | Zero to Intermediate Python Programming
+**Course Length** | 18 hours
+**Curriculum** | [Z2I Python]()
+**Grade** | [Certificate of Participation]()
+**Achievability** | 12/12
+
+
+## Did not find the certificate you were trying to verify?
+[Request an official confirmation]() or [report a false claim]().
+
+## Did not find your own certificate?
+[Report an issue with the database]() (e.g., false or missing information).
+
+Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! If you have successfully completed a course, you are entitled to a certificate.
+-->
