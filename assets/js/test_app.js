@@ -18,13 +18,14 @@ get_button.addEventListener("click", function() {
       querySnapshot.forEach(function(doc) {
         console.log(doc.data())
         console.log("Certificate number in the database:", doc.get("certificate_number"))
+        
+        // Display the results
+        display_first_name.innerHTML = doc.get("first_name")
+        display_last_name.innerHTML = doc.get("last_name")
+        display_certificate_number.innerHTML = doc.get("certificate_number")
       });
     })
     .catch(function(error) {
       console.log("Error getting documents:", error);
     });
 })
-
-display_first_name.innerHTML = doc.get("first_name")
-display_last_name.innerHTML = doc.get("last_name")
-display_certificate_number.innerHTML = doc.get("certificate_number")
