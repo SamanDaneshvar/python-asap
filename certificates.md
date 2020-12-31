@@ -54,16 +54,29 @@ Rest assured that at Saman Daneshvar's Coding Academy records don't go missing! 
 
 <!-- Previously loaded Firebase SDKs -->
 <script defer src="{{ site.url }}/assets/js/init-firebase.js"></script>
-
-
-
-
-<h3> Search by certificate number:</h3>
-<input id="query_certificate" type="textfield" />
-<button id="get_button">Get</button>
 <script defer src="{{ site.url }}/assets/js/test_app.js"></script>
 
 
+
+<h3>Search by certificate number</h3>
+<label for="query_cert">Certificate number:</label>
+<input id="query_cert" type="textfield" />
+<button id="search_by_cert_button">Search</button>
+
+<h3>Search by name and date of birth:</h3>
+<label for="query_first_name">First name:</label>
+<input id="query_first_name" type="textfield" />
+<label for="query_last_name">Last name:</label>
+<input id="query_last_name" type="textfield" />
+<label for="query_date_of_birth">Date of birth:</label>
+<input id="query_date_of_birth" type="textfield" />
+<button id="search_by_name_button">Search</button>
+
+---
+<h3>Participant's Certificates</h3>
+
+---
+<h3>Certificate Details</h3>
 
 <strong>Participant's Legal Name:</strong> <span id="first_name"></span> <span id="last_name"></span>
 
