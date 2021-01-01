@@ -96,7 +96,7 @@ search_by_name_button.addEventListener("click", function() {
             console.log("cert snapshot:", cert_snapshot);
             console.log("cert data:", cert_snapshot.data());
             certificate_number = cert_snapshot.get("certificate_number");
-            console.log("certificate nubmber:", certificate_number, "|", cert_snapshot.certificate_number);
+            console.log("certificate nubmber:", certificate_number, "|", cert_snapshot.data().certificate_number);
           })
           .catch(err => console.error(err));
         
