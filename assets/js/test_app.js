@@ -81,24 +81,22 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
         
-        var date_of_birth = student.get("date_of_birth");
-        console.log("Date of birth:", date_of_birth);
-        console.log("Query === Date of birth?", date_of_birth.isEqual(query_dob_timestamp));
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificate 0:", student.get("certificates")[0]);
-        console.log("Certificate 0 get:", student.get("certificates")[0].get());
-        // List<Map<String, Object>> certs = (List<Map<String, Object>>) student.get("certificates");
-        // console.log("Whatever this is:", certs)
-        console.log("cert:", student.data().cert)
+        
+        console.log("cert document reference:", student.get("cert"))
         console.log("Getting student .data .cert")
-        student.data().cert.get()
+        student.get("cert").get()
           .then(function(cert_snapshot) {
-            console.log("cert snapshot:", cert_snapshot);
+            console.log("cert document snapshot:", cert_snapshot);
             console.log("cert data:", cert_snapshot.data());
             certificate_number = cert_snapshot.get("certificate_number");
             console.log("certificate nubmber:", certificate_number, "|", cert_snapshot.data().certificate_number);
           })
           .catch(err => console.error(err));
+        
+        console.log("certificates collection ref", certificates_ref)
+        console.log("students collection ref", students_ref)
         
         
         // for (certificate of student.get("certificates")) {
