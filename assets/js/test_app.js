@@ -90,15 +90,20 @@ search_by_name_button.addEventListener("click", function() {
         // List<Map<String, Object>> certs = (List<Map<String, Object>>) student.get("certificates");
         // console.log("Whatever this is:", certs)
         console.log("cert:", student.data().cert)
-        console.log("Student data .cert get")
+        console.log("Getting student .data .cert")
         student.data().cert.get()
-          .then(function(result) {console.log("cert data:", result.data());} )
+          .then(function(cert_snapshot) {
+            console.log("cert snapshot:", cert_snapshot);
+            console.log("cert data:", cert_snapshot.data());
+            certificate_number = cert_snapshot.get("certificate_number");
+            console.log("certificate nubmber:", certificate_number, "|", cert_snapshot.certificate_number);
+          })
           .catch(err => console.error(err));
         
         
-        for (certificate of student.get("certificates")) {
-          console.log("Certificate number in the database:", certificate.get("certificate_number"));
-        }
+        // for (certificate of student.get("certificates")) {
+        //   console.log("Certificate number in the database:", certificate.get("certificate_number"));
+        // }
         
         // %%% Create links that would display a certificate upon clicking.
       });
