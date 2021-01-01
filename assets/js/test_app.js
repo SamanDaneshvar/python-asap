@@ -89,11 +89,11 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Certificate 0 get:", student.get("certificates")[0].get());
         // List<Map<String, Object>> certs = (List<Map<String, Object>>) student.get("certificates");
         // console.log("Whatever this is:", certs)
-        console.log("Student data .cert get", student.data().cert.get())
-        
-        
-        
-        console.log("Certificate 0 data:", student.get("certificates")[0].get().data());
+        console.log("cert:", student.data().cert)
+        console.log("Student data .cert get")
+        student.data().cert.get()
+          .then(function(result) {console.log("cert data:", result.data());} )
+          .catch(err => console.error(err));
         
         
         for (certificate of student.get("certificates")) {
