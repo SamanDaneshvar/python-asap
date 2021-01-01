@@ -87,8 +87,8 @@ search_by_name_button.addEventListener("click", function() {
         console.log("Certificates:", student.get("certificates"));
         console.log("Certificate 0:", student.get("certificates")[0]);
         console.log("Certificate 0 get:", student.get("certificates")[0].get());
-        List<Map<String, Object>> certs = (List<Map<String, Object>>) student.get("certificates");
-        console.log("Whatever this is:", certs)
+        // List<Map<String, Object>> certs = (List<Map<String, Object>>) student.get("certificates");
+        // console.log("Whatever this is:", certs)
         
         
         
