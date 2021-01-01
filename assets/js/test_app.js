@@ -51,8 +51,8 @@ search_by_cert_button.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
   certificates_ref.where("certificate_number", "==", query_certificate_number.value)
     .get()
-    .then(function(querySnapshot) {
-      querySnapshot.forEach(function(certificate) {
+    .then(function(query_snapshot) {
+      query_snapshot.forEach(function(certificate) {
         console.log(certificate.data());
         console.log("Certificate number in the database:", certificate.get("certificate_number"));
         
@@ -76,8 +76,8 @@ search_by_name_button.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
   students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value).where("date_of_birth", "==", query_dob_timestamp)
     .get()
-    .then(function(querySnapshot) {
-      querySnapshot.forEach(function(student) {
+    .then(function(query_snapshot) {
+      query_snapshot.forEach(function(student) {
         console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
         
