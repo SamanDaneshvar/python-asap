@@ -16,7 +16,7 @@ subTitle: Saman Daneshvar's Coding Academy
 
 
 <!-- Firebase SDKs are loaded before this -->
-<script defer src="{{ site.url }}/assets/js/test_app.js"></script>
+<script defer src="{{ site.url }}/assets/js/verify-certificates.js"></script>
 
 
 
