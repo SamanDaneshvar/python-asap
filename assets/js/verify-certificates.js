@@ -92,7 +92,9 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
 		  // Add an event listener on the hyperlink
 		  document.querySelector("#display_certificate_" + certificate_number).addEventListener("click", function() {
-		    console.log("The display certificate hyperlink has been clicked for:", certificate_number)
+            console.log("The display certificate hyperlink has been clicked.")
+		    console.log("  for:", certificate_number)
+			console.log("  for:" + certificate_number)
 		  })
 		}
         
