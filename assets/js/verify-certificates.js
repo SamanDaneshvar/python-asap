@@ -102,9 +102,9 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   for (certificate_number of ["2012-0486", "abc"]) {
     console.log("Adding an event listener for certificate number:", certificate_number)
     // Add an event listener on the hyperlink
-    //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
-    console.log("  Adding to:", SEARCH_BY_CERT_BUTTON);
-    SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {link_clicked();})
+    let this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
+    console.log("  Adding to:", this_hyperlink);
+    this_hyperlink.addEventListener("click", function() {link_clicked();})
     .catch(err => console.error("Error adding an event listener:", err));
   }
 })
