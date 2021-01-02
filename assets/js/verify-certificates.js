@@ -94,16 +94,18 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  // Add an event listener on the hyperlink
 		  //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
 		  console.log("Selected element:", temp);
-		  temp.addEventListener("click", function() {
-            console.log("The display certificate hyperlink has been clicked.");
-		    // console.log("  for:", certificate_number);
-		  })
+		  temp.addEventListener("click", function() {func()})
 		  .catch(err => console.error("Error adding an event listener:", err));
 		}
-        
       });
     })
     .catch(function(error) {
       console.log("Error getting documents:", error);
     });
 })
+
+
+func() {
+  console.log("The display certificate hyperlink has been clicked.");
+  // console.log("  for:", certificate_number);
+}
