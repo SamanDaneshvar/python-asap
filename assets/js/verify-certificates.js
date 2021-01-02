@@ -34,6 +34,7 @@ const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number")
 
 const DISPLAY_STATUS = document.querySelector("#status");
 // ...
+var temp = document.querySelector("#search_by_cert_button");
 
 
 function populate_certificate_info(cert_doc) {
@@ -92,7 +93,6 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
 		  // Add an event listener on the hyperlink
 		  //var temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
-		  var temp = document.querySelector("#search_by_cert_button")
 		  console.log("Selected element:", temp);
 		  temp.addEventListener("click", function() {
             console.log("The display certificate hyperlink has been clicked.");
