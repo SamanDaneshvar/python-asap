@@ -3,23 +3,6 @@ layout: page
 title: Certificates
 subTitle: Saman Daneshvar's Coding Academy
 ---
-
-<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
-<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
-<!-- Add any other Firebase products that you want to use -->
-<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
-
-
-<!-- Firebase SDKs are loaded before this -->
-<script defer src="{{ site.url }}/assets/js/verify-certificates.js"></script>
-
-
-
 # Verify a certificate
 
 <h3>Search by certificate number</h3>
@@ -57,6 +40,17 @@ Achievability:            | <span id="achievability" />
 
 
 
+<!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+<!-- Add any other Firebase products that you want to use -->
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+
+<!-- Firebase SDKs are loaded before this -->
+<script defer src="{{ site.url }}/assets/js/verify-certificates.js"></script>
 
 
 
