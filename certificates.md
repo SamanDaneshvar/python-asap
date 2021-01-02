@@ -38,6 +38,7 @@ subTitle: Saman Daneshvar's Coding Academy
 
 ---
 <h3>Participant's Certificates</h3>
+<div id="list_of_certificates"></div>
 
 ---
 <h3>Certificate Details</h3>
