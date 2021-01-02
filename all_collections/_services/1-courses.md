@@ -4,15 +4,13 @@ title: Courses Offered
 img: courses-offered.jpg
 category: Services
 ---
-<h3>Programming Languages</h3>
-<ul>
-  <li>Python</li>
-  <li>Java</li>
-  <li>JavaScript</li>
-  <li>MATLAB</li>
-  <li>C++</li>
-  <li>C</li>
-</ul>
+### Programming Languages
+- Python
+- Java
+- JavaScript
+- MATLAB
+- C++
+- C
 
 <h3>Subject Matters</h3>
 <ul>
