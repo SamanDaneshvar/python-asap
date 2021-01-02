@@ -67,7 +67,7 @@ SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
 })
 
 
-SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
+SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   // Convert the query date of birth to a Firestore timestamp object
   let query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
   let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
@@ -75,7 +75,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
   
   // Query the *students* collection
   console.log("Getting the student data from Firestore.");
-  await STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
+  STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
 	.get()
 	.then(function(query_snapshot) {
 	  query_snapshot.forEach(function(student) {
