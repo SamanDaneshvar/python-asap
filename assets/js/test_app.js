@@ -69,41 +69,23 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   // Convert the query date of birth to a Firestore timestamp object
   var query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
   var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
-  console.log("Query date of birth as JS Date:", query_dob_date);
-  console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
+  console.log("Query date of birth as JS Date and Firebase timestamp:", query_dob_date, query_dob_timestamp);
   
   // Query the *students* collection
-  console.log("Getting the data from Firestore.");
+  console.log("Getting the student data from Firestore.");
   STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
     .get()
     .then(function(query_snapshot) {
       query_snapshot.forEach(function(student) {
         console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
+        console.log("Certificate numbers:", student.get("certificate_numbers"));
+		
+		// %%% Create links that would display a certificate upon clicking.
+		for (certificate_number of student.get("certificate_numbers")) {
+		  console.log("Certificate number:", certificate_number)
+		}
         
-        console.log("Certificates:", student.get("certificates"));
-        console.log("Certificate 0:", student.get("certificates")[0]);
-        
-        console.log("cert document reference:", student.get("cert"))
-        console.log("Getting student .data .cert")
-        student.get("cert").get()
-          .then(function(cert_snapshot) {
-            console.log("cert document snapshot:", cert_snapshot);
-            console.log("cert data:", cert_snapshot.data());
-            certificate_number = cert_snapshot.get("certificate_number");
-            console.log("certificate nubmber:", certificate_number, "|", cert_snapshot.data().certificate_number);
-          })
-          .catch(err => console.error(err));
-        
-        console.log("certificates collection ref", CERTIFICATES_REF)
-        console.log("students collection ref", STUDENTS_REF)
-        
-        
-        // for (certificate of student.get("certificates")) {
-        //   console.log("Certificate number in the database:", certificate.get("certificate_number"));
-        // }
-        
-        // %%% Create links that would display a certificate upon clicking.
       });
     })
     .catch(function(error) {
