@@ -49,6 +49,8 @@ function populate_certificate_info(cert_doc) {
 }
 
 
+console.log("Adding an event listener on:", SEARCH_BY_CERT_BUTTON);
+
 SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
   CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
