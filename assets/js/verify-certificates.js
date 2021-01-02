@@ -94,7 +94,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  // Add an event listener on the hyperlink
 		  //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
 		  console.log("Selected element:", temp);
-		  temp.addEventListener("click", function() {func()})
+		  temp.addEventListener("click", function() {func();})
 		  .catch(err => console.error("Error adding an event listener:", err));
 		}
       });
