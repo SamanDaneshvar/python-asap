@@ -102,9 +102,11 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
     // Add an event listener on the hyperlink
     let this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
     console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
-	this_hyperlink.innerHTML += " Adding event listener."
+	this_hyperlink.innerHTML += " -> Adding";
     this_hyperlink.addEventListener("click", function() {link_clicked();})
       .catch(err => console.error("Error adding an event listener:", err));
+	console.log("Successfully added the event listener.");
+	this_hyperlink.innerHTML += " -> Added"
   }
 })
 
