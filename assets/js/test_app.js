@@ -25,7 +25,9 @@ const QUERY_FIRST_NAME = document.querySelector("#query_first_name");
 const QUERY_LAST_NAME = document.querySelector("#query_last_name");
 const QUERY_DOB_TEXT = document.querySelector("#query_date_of_birth");
 const SEARCH_BY_NAME_BUTTON = document.querySelector("#search_by_name_button");
-// For displaying the retrieved student and certificate info
+// For displaying the list of student's certificate numbers
+const LIST_OF_CERTIFICATES = document.querySelector("#list_of_certificates");
+// For displaying the retrieved certificate info
 const DISPLAY_FIRST_NAME = document.querySelector("#first_name");
 const DISPLAY_LAST_NAME = document.querySelector("#last_name");
 const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number");
@@ -81,9 +83,17 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
         console.log("Student data:", student.data());
         console.log("Certificate numbers:", student.get("certificate_numbers"));
 		
-		// %%% Create links that would display a certificate upon clicking.
+		// Create hyperlinks that would display a certificate upon clicking.
 		for (certificate_number of student.get("certificate_numbers")) {
-		  console.log("Certificate number:", certificate_number)
+		  console.log("Creating a hyperlink for certificate number:", certificate_number)
+		  // Build a hyperlink
+		  hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"Display the certificate information\">" + certificate_number + "</a></p>"
+		  // Add the hyperlink to the HTML
+		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
+		  // Add an event listener on the hyperlink
+		  document.querySelector("#display_certificate_" + certificate_number).addEventListener("click", function() {
+		    console.log("The display certificate hyperlink has been clicked for:", certificate_number)
+		  })
 		}
         
       });
