@@ -87,7 +87,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		for (certificate_number of student.get("certificate_numbers")) {
 		  console.log("Creating a hyperlink for certificate number:", certificate_number)
 		  // Build a hyperlink
-		  hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"Display the certificate information\">" + certificate_number + "</a></p>"
+		  hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"javascript:void\">" + certificate_number + "</a></p>"
 		  // Add the hyperlink to the HTML
 		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
 		  // Add an event listener on the hyperlink
