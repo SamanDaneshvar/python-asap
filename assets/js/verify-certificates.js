@@ -65,12 +65,15 @@ SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
       console.log("Error getting documents:", error);
     });
 })
+  .catch(err => console.error("Error adding an event listener on the search by cert button:", err));
 
+
+console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON);
 
 SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   console.log("The search by name button has been pressed.");
 })
-  .catch(err => console.error("Error adding an event listener to the search by name button:", err));
+  .catch(err => console.error("Error adding an event listener on the search by name button:", err));
 
 
 function link_clicked() {
