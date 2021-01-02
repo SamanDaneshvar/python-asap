@@ -34,7 +34,7 @@ const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number")
 
 const DISPLAY_STATUS = document.querySelector("#status");
 // ...
-let temp = document.querySelector("#search_by_cert_button");
+const temp = document.querySelector("#search_by_cert_button");
 
 
 function populate_certificate_info(cert_doc) {
