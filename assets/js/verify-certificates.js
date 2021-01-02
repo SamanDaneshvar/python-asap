@@ -39,6 +39,7 @@ const DISPLAY_STATUS = document.querySelector("#status");
 
 
 console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
+console.log("Add event listener?", SEARCH_BY_NAME_BUTTON.addEventListener)
 
 SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   console.log("The search by name button has been pressed.");
@@ -60,8 +61,6 @@ function populate_certificate_info(cert_doc) {
   DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
 }
 
-
-console.log("Adding an event listener on:", SEARCH_BY_CERT_BUTTON.innerHTML, SEARCH_BY_CERT_BUTTON);
 
 SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
