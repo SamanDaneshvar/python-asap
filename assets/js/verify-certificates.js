@@ -49,7 +49,7 @@ function populate_certificate_info(cert_doc) {
 }
 
 
-console.log("Adding an event listener on:", SEARCH_BY_CERT_BUTTON);
+console.log("Adding an event listener on:", SEARCH_BY_CERT_BUTTON.innerHTML, SEARCH_BY_CERT_BUTTON);
 
 SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
@@ -70,7 +70,7 @@ SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
   .catch(err => console.error("Error adding an event listener on the search by cert button:", err));
 
 
-console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON);
+console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
 
 SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   console.log("The search by name button has been pressed.");
