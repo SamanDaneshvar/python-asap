@@ -64,23 +64,7 @@ function populate_certificate_info(cert_doc) {
 }
 
 
-SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
-  console.log("Getting the data from Firestore.");
-  CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
-    .get()
-    .then(function(query_snapshot) {
-      query_snapshot.forEach(function(certificate) {
-        console.log(certificate.data());
-        console.log("Certificate number in the database:", certificate.get("certificate_number"));
-        
-        populate_certificate_info(certificate);
-      });
-    })
-    .catch(function(error) {
-      console.log("Error getting documents:", error);
-    });
-})
-  .catch(err => console.error("Error adding an event listener on the search by cert button:", err));
+
 
 
 function link_clicked() {
