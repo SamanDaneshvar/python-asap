@@ -34,7 +34,7 @@ const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number")
 
 const DISPLAY_STATUS = document.querySelector("#status");
 // ...
-var temp = document.querySelector("#search_by_cert_button");
+let temp = document.querySelector("#search_by_cert_button");
 
 
 function populate_certificate_info(cert_doc) {
@@ -70,8 +70,8 @@ SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
 
 SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   // Convert the query date of birth to a Firestore timestamp object
-  var query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
-  var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
+  let query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
+  let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
   console.log("Query date of birth as JS Date and Firebase timestamp:", query_dob_date, query_dob_timestamp);
   
   // Query the *students* collection
@@ -92,7 +92,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  // Add the hyperlink to the HTML
 		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
 		  // Add an event listener on the hyperlink
-		  //var temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
+		  //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
 		  console.log("Selected element:", temp);
 		  temp.addEventListener("click", function() {
             console.log("The display certificate hyperlink has been clicked.");
