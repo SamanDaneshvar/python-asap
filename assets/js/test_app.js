@@ -34,16 +34,16 @@ const DISPLAY_STATUS = document.querySelector("#status");
 // ...
 
 
-function populate_certificate_info(document) {
+function populate_certificate_info(cert_doc) {
   // Populate the HTML document with the certificate information retrieved from the Firebase database.
   // Args:
-  //   document: A Firebase document in the *certificates* collection. This is the returned result of the query.
+  //   cert_doc: A Firebase document in the *certificates* collection. This is the returned result of the query.
   // Returns:
   //   None
   
-  DISPLAY_FIRST_NAME.innerHTML = document.get("first_name");
-  DISPLAY_LAST_NAME.innerHTML = document.get("last_name");
-  DISPLAY_CERTIFICATE_NUMBER.innerHTML = document.get("certificate_number");
+  DISPLAY_FIRST_NAME.innerHTML = cert_doc.get("first_name");
+  DISPLAY_LAST_NAME.innerHTML = cert_doc.get("last_name");
+  DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
 }
 
 
