@@ -98,7 +98,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
             console.log("The display certificate hyperlink has been clicked.");
 		    // console.log("  for:", certificate_number);
 		  })
-		  .catch(err => console.error(err));
+		  .catch(err => console.error("Error adding an event listener:", err));
 		}
         
       });
