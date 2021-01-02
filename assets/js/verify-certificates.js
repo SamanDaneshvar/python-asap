@@ -41,10 +41,13 @@ const DISPLAY_STATUS = document.querySelector("#status");
 console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
 console.log("Add event listener?", SEARCH_BY_NAME_BUTTON.addEventListener)
 
-SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
-  console.log("The search by name button has been pressed.");
-})
+SEARCH_BY_NAME_BUTTON.addEventListener("click", notify_button_click)
   .catch(err => console.error("Error adding an event listener on the search by name button:", err));
+
+function notify_button_click() {
+  console.log("The search by name button has been pressed.");
+}
+  
 
 
 
