@@ -83,7 +83,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
         console.log("Student data:", student.data());
         console.log("Certificate numbers:", student.get("certificate_numbers"));
 		
-		// Create hyperlinks that would display a certificate upon clicking.
+		// Create a hyperlink to display each certificate.
 		for (certificate_number of student.get("certificate_numbers")) {
 		  console.log("Creating a hyperlink for certificate number:", certificate_number)
 		  // Build a hyperlink
@@ -91,20 +91,20 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  // Add the hyperlink to the HTML
 		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
 		}
-		
-		for (certificate_number of student.get("certificate_numbers")) {
-	      console.log("Adding an event listener for certificate number:", certificate_number)
-		  // Add an event listener on the hyperlink
-		  //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
-		  console.log("  Adding to:", SEARCH_BY_CERT_BUTTON);
-		  SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {link_clicked();})
-		  .catch(err => console.error("Error adding an event listener:", err));
-		}
       });
     })
     .catch(function(error) {
       console.log("Error getting documents:", error);
     });
+
+  for (certificate_number of ["2012-0486", "abc"]) {
+    console.log("Adding an event listener for certificate number:", certificate_number)
+    // Add an event listener on the hyperlink
+    //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
+    console.log("  Adding to:", SEARCH_BY_CERT_BUTTON);
+    SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {link_clicked();})
+    .catch(err => console.error("Error adding an event listener:", err));
+  }
 })
 
 
