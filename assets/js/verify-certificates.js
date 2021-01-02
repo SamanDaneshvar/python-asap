@@ -91,10 +91,14 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 		  let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace("-", "") + "\" href=\"javascript:void\">" + certificate_number + "</a></p>"
 		  // Add the hyperlink to the HTML
 		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
+		}
+		
+		for (certificate_number of student.get("certificate_numbers")) {
+	      console.log("Adding an event listener for certificate number:", certificate_number)
 		  // Add an event listener on the hyperlink
 		  //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
 		  console.log("Selected element:", temp);
-		  temp.addEventListener("click", function() {func();})
+		  temp.addEventListener("click", function() {link_clicked();})
 		  .catch(err => console.error("Error adding an event listener:", err));
 		}
       });
@@ -105,7 +109,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 })
 
 
-function func() {
+function link_clicked() {
   console.log("The display certificate hyperlink has been clicked.");
   // console.log("  for:", certificate_number);
 }
