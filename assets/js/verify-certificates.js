@@ -36,6 +36,18 @@ const DISPLAY_STATUS = document.querySelector("#status");
 // ...
 
 
+
+
+console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
+
+SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
+  console.log("The search by name button has been pressed.");
+})
+  .catch(err => console.error("Error adding an event listener on the search by name button:", err));
+
+
+
+
 function populate_certificate_info(cert_doc) {
   // Populate the HTML document with the certificate information retrieved from the Firebase database.
   // Args:
@@ -68,14 +80,6 @@ SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
     });
 })
   .catch(err => console.error("Error adding an event listener on the search by cert button:", err));
-
-
-console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
-
-SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
-  console.log("The search by name button has been pressed.");
-})
-  .catch(err => console.error("Error adding an event listener on the search by name button:", err));
 
 
 function link_clicked() {
