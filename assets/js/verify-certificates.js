@@ -73,31 +73,29 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
   let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
   console.log("Query date of birth as JS Date and Firebase timestamp:", query_dob_date, query_dob_timestamp);
   
-  await (function() {
-	  // Query the *students* collection
-	  console.log("Getting the student data from Firestore.");
-	  STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
-		.get()
-		.then(function(query_snapshot) {
-		  query_snapshot.forEach(function(student) {
-			console.log("Student document snapshot:", student);
-			console.log("Student data:", student.data());
-			console.log("Certificate numbers:", student.get("certificate_numbers"));
-			
-			// Create a hyperlink to display each certificate.
-			for (certificate_number of student.get("certificate_numbers")) {
-			  console.log("Creating a hyperlink for certificate number:", certificate_number)
-			  // Build a hyperlink
-			  let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace("-", "") + "\" href=\"javascript:void\">" + certificate_number + "</a></p>"
-			  // Add the hyperlink to the HTML
-			  LIST_OF_CERTIFICATES.innerHTML += hyperlink
-			}
-		  });
-		})
-		.catch(function(error) {
-		  console.log("Error getting documents:", error);
-		});
-  })();  // Immediately-Invoked Function Expression (IIFE)
+  // Query the *students* collection
+  console.log("Getting the student data from Firestore.");
+  await STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
+	.get()
+	.then(function(query_snapshot) {
+	  query_snapshot.forEach(function(student) {
+		console.log("Student document snapshot:", student);
+		console.log("Student data:", student.data());
+		console.log("Certificate numbers:", student.get("certificate_numbers"));
+		
+		// Create a hyperlink to display each certificate.
+		for (certificate_number of student.get("certificate_numbers")) {
+		  console.log("Creating a hyperlink for certificate number:", certificate_number)
+		  // Build a hyperlink
+		  let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace("-", "") + "\" href=\"javascript:void\">" + certificate_number + "</a></p>"
+		  // Add the hyperlink to the HTML
+		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
+		}
+	  });
+	})
+	.catch(function(error) {
+	  console.log("Error getting documents:", error);
+	});
 
   for (certificate_number of ["2012-0486", "abc"]) {
     console.log("Adding an event listener for certificate number:", certificate_number)
@@ -105,7 +103,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
     let this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
     console.log("  Adding to:", this_hyperlink);
     this_hyperlink.addEventListener("click", function() {link_clicked();})
-    .catch(err => console.error("Error adding an event listener:", err));
+      .catch(err => console.error("Error adding an event listener:", err));
   }
 })
 
