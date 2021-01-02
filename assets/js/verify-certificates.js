@@ -41,33 +41,8 @@ const DISPLAY_STATUS = document.querySelector("#status");
 console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
 console.log("Add event listener?", SEARCH_BY_NAME_BUTTON.addEventListener)
 
-SEARCH_BY_NAME_BUTTON.addEventListener("click", notify_button_click)
+SEARCH_BY_NAME_BUTTON.addEventListener("click", notify_button_click, false)
 
 function notify_button_click() {
   console.log("The search by name button has been pressed.");
-}
-  
-
-
-
-
-function populate_certificate_info(cert_doc) {
-  // Populate the HTML document with the certificate information retrieved from the Firebase database.
-  // Args:
-  //   cert_doc: A Firebase document in the *certificates* collection. This is the returned result of the query.
-  // Returns:
-  //   None
-  
-  DISPLAY_FIRST_NAME.innerHTML = cert_doc.get("first_name");
-  DISPLAY_LAST_NAME.innerHTML = cert_doc.get("last_name");
-  DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
-}
-
-
-
-
-
-function link_clicked() {
-  console.log("The display certificate hyperlink has been clicked.");
-  // console.log("  for:", certificate_number);
 }
