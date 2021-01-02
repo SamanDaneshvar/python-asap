@@ -34,7 +34,6 @@ const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number")
 
 const DISPLAY_STATUS = document.querySelector("#status");
 // ...
-const temp = document.querySelector("#search_by_cert_button");
 
 
 function populate_certificate_info(cert_doc) {
@@ -97,8 +96,8 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
 	      console.log("Adding an event listener for certificate number:", certificate_number)
 		  // Add an event listener on the hyperlink
 		  //let temp = document.querySelector("#display_certificate_" + certificate_number.replace("-", ""));
-		  console.log("Selected element:", temp);
-		  temp.addEventListener("click", function() {link_clicked();})
+		  console.log("  Adding to:", SEARCH_BY_CERT_BUTTON);
+		  SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {link_clicked();})
 		  .catch(err => console.error("Error adding an event listener:", err));
 		}
       });
