@@ -12,12 +12,10 @@ category: Services
 - C++
 - C
 
-<h3>Subject Matters</h3>
-<ul>
-  <li><strong>Programming:</strong> Levels are <q>Zero</q>, Intermediate, Advanced, and Master Class.</li>
-  <li><strong>Data Analysis:</strong> Python libraries include <i>NumPy</i>, <i>Pandas</i>, and <i>Matplotlib</i>.</li>
-  <li><strong>Machine Learning:</strong> Classical ML algorithms, Artificial Neural Networks, and Deep Learning. Python libraries include <i>scikit-learn</i>, <i>Keras</i>, and <i>TensorFlow</i>.</li>
-</ul>
+### Subject Matters
+- **Programming:** Levels are <q>Zero</q>, Intermediate, Advanced, and Master Class.
+- **Data Analysis:** Python libraries include *NumPy*, *Pandas*, and *Matplotlib*.
+- **Machine Learning:** Classical ML algorithms, Artificial Neural Networks, and Deep Learning. Python libraries include *scikit-learn*, *Keras*, and *TensorFlow*.
 
 Courses are offerred in the form of group classes and private classes.
 All classes are available in English and Persian.
