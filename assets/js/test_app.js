@@ -13,24 +13,24 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-const db = firebase.firestore();
-const certificates_ref = db.collection("certificates");
-const students_ref = db.collection("students");
+const DB = firebase.firestore();
+const CERTIFICATES_REF = DB.collection("certificates");
+const STUDENTS_REF = DB.collection("students");
 
 // For search by certificate number
-const query_certificate_number = document.querySelector("#query_cert");
-const search_by_cert_button = document.querySelector("#search_by_cert_button");
+const QUERY_CERTIFICATE_NUMBER = document.querySelector("#query_cert");
+const SEARCH_BY_CERT_BUTTON = document.querySelector("#search_by_cert_button");
 // For search by name and date of birth
-const query_first_name = document.querySelector("#query_first_name");
-const query_last_name = document.querySelector("#query_last_name");
-const query_dob_text = document.querySelector("#query_date_of_birth");
-const search_by_name_button = document.querySelector("#search_by_name_button");
+const QUERY_FIRST_NAME = document.querySelector("#query_first_name");
+const QUERY_LAST_NAME = document.querySelector("#query_last_name");
+const QUERY_DOB_TEXT = document.querySelector("#query_date_of_birth");
+const SEARCH_BY_NAME_BUTTON = document.querySelector("#search_by_name_button");
 // For displaying the retrieved student and certificate info
-const display_first_name = document.querySelector("#first_name");
-const display_last_name = document.querySelector("#last_name");
-const display_certificate_number = document.querySelector("#certificate_number");
+const DISPLAY_FIRST_NAME = document.querySelector("#first_name");
+const DISPLAY_LAST_NAME = document.querySelector("#last_name");
+const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number");
 
-const display_status = document.querySelector("#status");
+const DISPLAY_STATUS = document.querySelector("#status");
 // ...
 
 
@@ -41,15 +41,15 @@ function populate_certificate_info(document) {
   // Returns:
   //   None
   
-  display_first_name.innerHTML = document.get("first_name");
-  display_last_name.innerHTML = document.get("last_name");
-  display_certificate_number.innerHTML = document.get("certificate_number");
+  DISPLAY_FIRST_NAME.innerHTML = document.get("first_name");
+  DISPLAY_LAST_NAME.innerHTML = document.get("last_name");
+  DISPLAY_CERTIFICATE_NUMBER.innerHTML = document.get("certificate_number");
 }
 
 
-search_by_cert_button.addEventListener("click", function() {
+SEARCH_BY_CERT_BUTTON.addEventListener("click", function() {
   console.log("Getting the data from Firestore.");
-  certificates_ref.where("certificate_number", "==", query_certificate_number.value)
+  CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
     .get()
     .then(function(query_snapshot) {
       query_snapshot.forEach(function(certificate) {
@@ -65,16 +65,16 @@ search_by_cert_button.addEventListener("click", function() {
 })
 
 
-search_by_name_button.addEventListener("click", function() {
+SEARCH_BY_NAME_BUTTON.addEventListener("click", function() {
   // Convert the query date of birth to a Firestore timestamp object
-  var query_dob_date = new Date(query_dob_text.value + "T00:00:00-05:00");
+  var query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
   var query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
   console.log("Query date of birth as JS Date:", query_dob_date);
   console.log("Query date of birth as Firebase timestamp:", query_dob_timestamp);
   
   // Query the *students* collection
   console.log("Getting the data from Firestore.");
-  students_ref.where("first_name", "==", query_first_name.value).where("last_name", "==", query_last_name.value).where("date_of_birth", "==", query_dob_timestamp)
+  STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
     .get()
     .then(function(query_snapshot) {
       query_snapshot.forEach(function(student) {
@@ -95,8 +95,8 @@ search_by_name_button.addEventListener("click", function() {
           })
           .catch(err => console.error(err));
         
-        console.log("certificates collection ref", certificates_ref)
-        console.log("students collection ref", students_ref)
+        console.log("certificates collection ref", CERTIFICATES_REF)
+        console.log("students collection ref", STUDENTS_REF)
         
         
         // for (certificate of student.get("certificates")) {
