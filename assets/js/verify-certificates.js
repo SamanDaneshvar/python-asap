@@ -98,7 +98,6 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
 	});
 
 
-
   // for (const certificate_number of ["2012-0486", "abc"]) {
   let certificate_number;
   certificate_number = "2012-0486";
@@ -113,8 +112,8 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
   
   console.log("Successfully added the event listener.");
   this_hyperlink.innerHTML += " -> Added";
-	
-	
+
+
   certificate_number = "abc";
   console.log("Adding an event listener for certificate number:", certificate_number);
   // Add an event listener on the hyperlink
@@ -129,6 +128,7 @@ SEARCH_BY_NAME_BUTTON.addEventListener("click", async function() {
   this_hyperlink.innerHTML += " -> Added";
   // }
 })
+  .catch(err => console.error("Error adding an event listener to the search by name button:", err));
 
 
 function link_clicked() {
