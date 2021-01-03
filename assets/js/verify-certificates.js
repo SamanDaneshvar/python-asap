@@ -36,6 +36,15 @@ const DISPLAY_STATUS = document.querySelector("#status");
 // ...
 
 
+function click_handler(event) {
+  
+}
+
+document.addEventListener("click", function() {click_handler(event);});
+
+
+
+
 
 
 console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
@@ -75,15 +84,15 @@ async function button_clicked() {
           console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
           this_hyperlink.innerHTML += " -> Adding";
           
-          this_hyperlink.addEventListener("click", function(certificate_number) {link_clicked(certificate_number);});
+          this_hyperlink.addEventListener("click", function() {link_clicked(certificate_number);});
           
           console.log("Successfully added the event listener.");
           this_hyperlink.innerHTML += " -> Added";
         }
       });
     })
-    .catch(function(error) {
-      console.log("Error getting documents:", error);
+    .catch(function(err) {
+      console.error("Error getting documents:", err);
     });
 }
 
