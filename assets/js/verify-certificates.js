@@ -37,21 +37,26 @@ const DISPLAY_STATUS = document.querySelector("#status");
 
 
 function click_handler(event) {
-  TARGETS_TO_HANDLE = ["search_by_cert_button", "search_by_name_button"]
-  PARTIAL_TARGETS = ["display_certificate_"]
+  MATCHES = ["search_by_cert_button", "search_by_name_button"];
+  PARTIAL_MATCHES = ["display_certificate_"];
   
-  console.log("Click Handler: Click made on", event.target.id, event.target)
+  console.log("Click Handler: A click was made on", event.target.id, event.target);
   
-  if (TARGETS_TO_HANDLE.includes(event.target.id)) {
-    console.log("The item is a target.");
-  } else {
-    console.log("Not a target.");
+  // Short circuit on any target that is not a match (not to be handled).
+  if ( !MATCHES.includes(event.target.id) && !includes(event.target.id, PARTIAL_MATCHES) ) {
+    console.log("The element is not a match or partial match.");
+	return;
   }
   
-  if (includes(event.target.id, PARTIAL_TARGETS)) {
-    console.log("The item is a partial target.");
-  } else {
-    console.log("Not a partial target.");
+  if (event.target.id == "search_by_cert_button") {
+  }
+  
+  if (event.target.id == "search_by_name_button")
+    button_clicked();
+  
+  if (event.target.id.startsWith("display_certificate_")) {
+    const certificate_number = event.target.id.replace("display_certificate_", "");
+	link_clicked(certificate_number);
   }
 }
 
@@ -61,10 +66,7 @@ document.addEventListener("click", function() {click_handler(event);});
 
 
 
-console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
-console.log("Add event listener?", SEARCH_BY_NAME_BUTTON.addEventListener)
 
-SEARCH_BY_NAME_BUTTON.addEventListener("click", button_clicked);
 
 async function button_clicked() {
   console.log("The search by name button has been pressed.");
@@ -88,20 +90,9 @@ async function button_clicked() {
         for (const certificate_number of student.get("certificate_numbers")) {
           console.log("Creating a hyperlink for certificate number:", certificate_number)
           // Build a hyperlink
-          let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace(/-/g, "") + "\" href=\"javascript:void(0);\">" + certificate_number + "</a></p>"
+          let hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"javascript:void(0);\">" + certificate_number + "</a></p>"
           // Add the hyperlink to the HTML
           LIST_OF_CERTIFICATES.innerHTML += hyperlink
-          
-          console.log("Adding an event listener for certificate number:", certificate_number);
-          // Add an event listener on the hyperlink
-          let this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace(/-/g, ""));
-          console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
-          this_hyperlink.innerHTML += " -> Adding";
-          
-          this_hyperlink.addEventListener("click", function() {link_clicked(certificate_number);});
-          
-          console.log("Successfully added the event listener.");
-          this_hyperlink.innerHTML += " -> Added";
         }
       });
     })
