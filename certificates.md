@@ -29,6 +29,7 @@ subTitle: Saman Daneshvar's Coding Academy
 &nbsp; | &nbsp;
 :- | :-
 Participant's Legal Name: | <span id="first_name" /> <span id="last_name" />
+Total Certificates:       | <span id="total_certificates" />
 Certificate Number:       | <span id="certificate_number" />
 Date Issued:              | <span id="date_of_issue" />
 Status:                   | <span id="status" />
