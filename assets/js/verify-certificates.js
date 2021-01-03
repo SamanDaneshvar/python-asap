@@ -37,15 +37,25 @@ const DISPLAY_STATUS = document.querySelector("#status");
 
 
 function click_handler(event) {
-  TARGETS_TO_HANDLE = ["search_by_cert_button", "search_by_name_button", "display_certificate_*"]
+  TARGETS_TO_HANDLE = ["search_by_cert_button", "search_by_name_button"]
+  PARTIAL_TARGETS = ["display_certificate_"]
   
   console.log("Click Handler: Click made on", event.target.id, event.target)
   
+  if (TARGETS_TO_HANDLE.includes(event.target.id)) {
+    console.log("The item is a target.");
+  } else {
+    console.log("Not a target.");
+  }
   
+  if (includes(event.target.id, PARTIAL_TARGETS)) {
+    console.log("The item is a partial target.");
+  } else {
+    console.log("Not a partial target.");
+  }
 }
 
 document.addEventListener("click", function() {click_handler(event);});
-
 
 
 
@@ -105,4 +115,41 @@ function link_clicked(certificate_number) {
   console.log("The display certificate hyperlink has been clicked.");
   console.log(certificate_number);
   // console.log("  for:", certificate_number);
+}
+
+
+function includes(test_string, target_array, match_type="starts_with") {
+  // Checks whether any string in the *target_array* is a substring to *test_string*.
+  // Example:  includes("welcome home!", ["234", "welcome", "abc"], "starts_with")  yields true.
+  //
+  // Args:
+  //   test_string: The string to test. If a match, this string contains one of the strings in the target array.
+  //   target_array: The target array. If a match, of the strings in this array is a substring of the test string.
+  //   match_type: One of the three strings: "starts_with", "includes", "ends_with"
+  // Returns:
+  //   true if a partial match is found
+  //   false if the test string is not a partial match to any of the strings in the target array.
+  
+  if (match_type == "starts_with") {
+    for (target of target_array) {
+      if (test_string.startsWith(target))
+        return true;
+    }
+    // If you reach here, it means none of the strings in the array were a match.
+    return false;
+  } else if (match_type == "includes") {
+      for (target of target_array) {
+        if (test_string.includes(target))
+          return true;
+      }
+	  // If you reach here, it means none of the strings in the array were a match.
+	  return false;
+  } else if (match_type == "ends_with") {
+      for (target of target_array) {
+        if (test_string.endsWith(target))
+          return true;
+      }
+	  // If you reach here, it means none of the strings in the array were a match.
+	  return false;
+  }
 }
