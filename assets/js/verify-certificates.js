@@ -75,7 +75,7 @@ async function button_clicked() {
           console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
           this_hyperlink.innerHTML += " -> Adding";
           
-          this_hyperlink.addEventListener("click", link_clicked);
+          this_hyperlink.addEventListener("click", link_clicked(certificate_number));
           
           console.log("Successfully added the event listener.");
           this_hyperlink.innerHTML += " -> Added";
@@ -88,7 +88,7 @@ async function button_clicked() {
 }
 
 
-function link_clicked() {
-  console.log("The display certificate hyperlink has been clicked.");
+function link_clicked(certificate_number) {
+  console.log("The display certificate hyperlink has been clicked on certificate", certificate_number);
   // console.log("  for:", certificate_number);
 }
