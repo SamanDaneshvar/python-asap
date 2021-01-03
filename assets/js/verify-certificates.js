@@ -44,9 +44,13 @@ function click_handler(event) {
   
   // Short circuit on any target that is not a match (not to be handled).
   if ( !MATCHES.includes(event.target.id) && !includes(event.target.id, PARTIAL_MATCHES) ) {
-    console.log("The element is not a match or partial match.");
 	return;
   }
+  
+  // Disable the default action of the event (don't open the URL).
+  event.preventDefault();
+  
+  console.log("The target is a match.");
   
   if (event.target.id == "search_by_cert_button") {
   }
