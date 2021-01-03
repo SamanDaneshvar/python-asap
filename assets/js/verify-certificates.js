@@ -90,7 +90,7 @@ async function button_clicked() {
         for (const certificate_number of student.get("certificate_numbers")) {
           console.log("Creating a hyperlink for certificate number:", certificate_number)
           // Build a hyperlink
-          let hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"javascript:void(0);\">" + certificate_number + "</a></p>"
+          let hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"\">" + certificate_number + "</a></p>"
           // Add the hyperlink to the HTML
           LIST_OF_CERTIFICATES.innerHTML += hyperlink
         }
