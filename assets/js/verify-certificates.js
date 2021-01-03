@@ -74,4 +74,41 @@ async function button_clicked() {
 	.catch(function(error) {
 	  console.log("Error getting documents:", error);
 	});
+  
+  
+  // for (const certificate_number of ["2012-0486", "abc"]) {
+  let certificate_number;
+  let this_hyperlink;
+  
+  certificate_number = "2012-0486";
+  console.log("Adding an event listener for certificate number:", certificate_number);
+  // Add an event listener on the hyperlink
+  this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace(/-/g, ""));
+  console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
+  this_hyperlink.innerHTML += " -> Adding";
+  
+  this_hyperlink.addEventListener("click", function() {link_clicked();});
+  
+  console.log("Successfully added the event listener.");
+  this_hyperlink.innerHTML += " -> Added";
+
+
+  certificate_number = "abc";
+  console.log("Adding an event listener for certificate number:", certificate_number);
+  // Add an event listener on the hyperlink
+  this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace(/-/g, ""));
+  console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
+  this_hyperlink.innerHTML += " -> Adding";
+  
+  this_hyperlink.addEventListener("click", function() {link_clicked();});
+  
+  console.log("Successfully added the event listener.");
+  this_hyperlink.innerHTML += " -> Added";
+  // }
+}
+
+
+function link_clicked() {
+  console.log("The display certificate hyperlink has been clicked.");
+  // console.log("  for:", certificate_number);
 }
