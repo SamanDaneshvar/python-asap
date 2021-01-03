@@ -85,9 +85,7 @@ function cert_button_clicked() {
         populate_certificate_info(certificate);
       });
     })
-    .catch(function(err) {
-      console.error("Error getting documents:", err);
-    });
+	.catch(err => console.error("Error getting documents:", err));
 }
 
 
@@ -119,9 +117,7 @@ async function name_button_clicked() {
         }
       });
     })
-    .catch(function(err) {
-      console.error("Error getting documents:", err);
-    });
+	.catch(err => console.error("Error getting documents:", err));
 }
 
 
