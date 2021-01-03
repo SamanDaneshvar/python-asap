@@ -19,28 +19,23 @@ const STUDENTS_REF = DB.collection("students");
 
 // For search by certificate number
 const QUERY_CERTIFICATE_NUMBER = document.querySelector("#query_cert");
-const SEARCH_BY_CERT_BUTTON = document.querySelector("#search_by_cert_button");
 // For search by name and date of birth
 const QUERY_FIRST_NAME = document.querySelector("#query_first_name");
 const QUERY_LAST_NAME = document.querySelector("#query_last_name");
 const QUERY_DOB_TEXT = document.querySelector("#query_date_of_birth");
-const SEARCH_BY_NAME_BUTTON = document.querySelector("#search_by_name_button");
 // For displaying the list of student's certificate numbers
 const LIST_OF_CERTIFICATES = document.querySelector("#list_of_certificates");
 // For displaying the retrieved certificate info
 const DISPLAY_FIRST_NAME = document.querySelector("#first_name");
 const DISPLAY_LAST_NAME = document.querySelector("#last_name");
 const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number");
-
-const DISPLAY_STATUS = document.querySelector("#status");
 // ...
+const DISPLAY_STATUS = document.querySelector("#status");
 
 
 function click_handler(event) {
   MATCHES = ["search_by_cert_button", "search_by_name_button"];
   PARTIAL_MATCHES = ["display_certificate_"];
-  
-  console.log("Click Handler: A click was made on", event.target.id, event.target);
   
   // Short circuit on any target that is not a match (not to be handled).
   if ( !MATCHES.includes(event.target.id) && !includes(event.target.id, PARTIAL_MATCHES) ) {
@@ -49,8 +44,6 @@ function click_handler(event) {
   
   // Disable the default action of the event (don't open the URL).
   event.preventDefault();
-  
-  console.log("The target is a match.");
   
   if (event.target.id == "search_by_cert_button") {
     cert_button_clicked();
@@ -68,20 +61,13 @@ function click_handler(event) {
 document.addEventListener("click", function() {click_handler(event);});
 
 
-
-
-
-
-
-function cert_button_clicked() {
+async function cert_button_clicked() {
   console.log("Getting the data from Firestore.");
-  CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
+  await CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
     .get()
     .then(function(query_snapshot) {
       query_snapshot.forEach(function(certificate) {
         console.log(certificate.data());
-        console.log("Certificate number in the database:", certificate.get("certificate_number"));
-        
         populate_certificate_info(certificate);
       });
     })
@@ -89,9 +75,7 @@ function cert_button_clicked() {
 }
 
 
-async function name_button_clicked() {
-  console.log("The search by name button has been pressed.");
-  
+async function name_button_clicked() {  
   // Convert the query date of birth to a Firestore timestamp object
   let query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
   let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
@@ -105,11 +89,9 @@ async function name_button_clicked() {
       query_snapshot.forEach(function(student) {
         console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
-        console.log("Certificate numbers:", student.get("certificate_numbers"));
         
         // Create a hyperlink to display each certificate.
         for (const certificate_number of student.get("certificate_numbers")) {
-          console.log("Creating a hyperlink for certificate number:", certificate_number)
           // Build a hyperlink
           let hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"\">" + certificate_number + "</a></p>"
           // Add the hyperlink to the HTML
@@ -122,9 +104,7 @@ async function name_button_clicked() {
 
 
 function link_clicked(certificate_number) {
-  console.log("The display certificate hyperlink has been clicked.");
   console.log(certificate_number);
-  // console.log("  for:", certificate_number);
 }
 
 
