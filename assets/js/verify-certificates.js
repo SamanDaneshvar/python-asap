@@ -41,8 +41,37 @@ const DISPLAY_STATUS = document.querySelector("#status");
 console.log("Adding an event listener on:", SEARCH_BY_NAME_BUTTON.innerHTML, SEARCH_BY_NAME_BUTTON);
 console.log("Add event listener?", SEARCH_BY_NAME_BUTTON.addEventListener)
 
-SEARCH_BY_NAME_BUTTON.addEventListener("click", notify_button_click);
+SEARCH_BY_NAME_BUTTON.addEventListener("click", button_clicked);
 
-function notify_button_click() {
+async function button_clicked() {
   console.log("The search by name button has been pressed.");
+  
+  // Convert the query date of birth to a Firestore timestamp object
+  let query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
+  let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
+  console.log("Query date of birth as JS Date and Firebase timestamp:", query_dob_date, query_dob_timestamp);
+  
+  // Query the *students* collection
+  console.log("Getting the student data from Firestore.");
+  await STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
+	.get()
+	.then(function(query_snapshot) {
+	  query_snapshot.forEach(function(student) {
+		console.log("Student document snapshot:", student);
+		console.log("Student data:", student.data());
+		console.log("Certificate numbers:", student.get("certificate_numbers"));
+		
+		// Create a hyperlink to display each certificate.
+		for (const certificate_number of student.get("certificate_numbers")) {
+		  console.log("Creating a hyperlink for certificate number:", certificate_number)
+		  // Build a hyperlink
+		  let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace(/-/g, "") + "\" href=\"javascript:void(0);\">" + certificate_number + "</a></p>"
+		  // Add the hyperlink to the HTML
+		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
+		}
+	  });
+	})
+	.catch(function(error) {
+	  console.log("Error getting documents:", error);
+	});
 }
