@@ -53,10 +53,11 @@ function click_handler(event) {
   console.log("The target is a match.");
   
   if (event.target.id == "search_by_cert_button") {
+    cert_button_clicked();
   }
   
   if (event.target.id == "search_by_name_button")
-    button_clicked();
+    name_button_clicked();
   
   if (event.target.id.startsWith("display_certificate_")) {
     const certificate_number = event.target.id.replace("display_certificate_", "");
@@ -72,7 +73,25 @@ document.addEventListener("click", function() {click_handler(event);});
 
 
 
-async function button_clicked() {
+function cert_button_clicked() {
+  console.log("Getting the data from Firestore.");
+  CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
+    .get()
+    .then(function(query_snapshot) {
+      query_snapshot.forEach(function(certificate) {
+        console.log(certificate.data());
+        console.log("Certificate number in the database:", certificate.get("certificate_number"));
+        
+        populate_certificate_info(certificate);
+      });
+    })
+    .catch(function(err) {
+      console.error("Error getting documents:", err);
+    });
+}
+
+
+async function name_button_clicked() {
   console.log("The search by name button has been pressed.");
   
   // Convert the query date of birth to a Firestore timestamp object
@@ -110,6 +129,19 @@ function link_clicked(certificate_number) {
   console.log("The display certificate hyperlink has been clicked.");
   console.log(certificate_number);
   // console.log("  for:", certificate_number);
+}
+
+
+function populate_certificate_info(cert_doc) {
+  // Populate the HTML document with the certificate information retrieved from the Firebase database.
+  // Args:
+  //   cert_doc: A Firebase document in the *certificates* collection. This is the returned result of the query.
+  // Returns:
+  //   None
+  
+  DISPLAY_FIRST_NAME.innerHTML = cert_doc.get("first_name");
+  DISPLAY_LAST_NAME.innerHTML = cert_doc.get("last_name");
+  DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
 }
 
 
