@@ -6,7 +6,7 @@
 
       <p><i class="fab fa-telegram" style="color:#28a8e9;"></i>&nbsp; Telegram: <a href="https://t.me/smndnv">@smndnv</a></p>
       <p><i class="far fa-envelope"></i>&nbsp; Email:
-        <a href="mailto:honeypot001@pythonasap.com" onmouseover="reveal(this)" ontouchstart="reveal(this)">Bot defense. Hover to reveal the address.</a>
+        <a href="mailto:honeypot21@pythonasap.com" onmouseover="reveal(this)" ontouchstart="reveal(this)">Bot defense. Hover over to reveal the address.</a>
       </p>
       <p><i class="far fa-comment"></i>&nbsp; Send us a message using the contact form below.</p>
       <br>
@@ -21,7 +21,8 @@
 
 <script>
   function reveal(element) {
-    element.href = "mailto:support@pythonasap.com"
-    element.innerHTML = "support@pythonasap.com"
+    const ADDRESS = "support" + String.fromCharCode(64) + "pythonasap.com"
+    element.href = "mai" + "lto:" + ADDRESS
+    element.innerHTML = ADDRESS
   }
 </script>
