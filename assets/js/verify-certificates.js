@@ -54,40 +54,37 @@ async function button_clicked() {
   // Query the *students* collection
   console.log("Getting the student data from Firestore.");
   await STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
-	.get()
-	.then(function(query_snapshot) {
-	  query_snapshot.forEach(function(student) {
-		console.log("Student document snapshot:", student);
-		console.log("Student data:", student.data());
-		console.log("Certificate numbers:", student.get("certificate_numbers"));
-		
-		// Create a hyperlink to display each certificate.
-		for (const certificate_number of student.get("certificate_numbers")) {
-		  console.log("Creating a hyperlink for certificate number:", certificate_number)
-		  // Build a hyperlink
-		  let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace(/-/g, "") + "\" href=\"javascript:void(0);\">" + certificate_number + "</a></p>"
-		  // Add the hyperlink to the HTML
-		  LIST_OF_CERTIFICATES.innerHTML += hyperlink
-		}
-	  });
-	})
-	.catch(function(error) {
-	  console.log("Error getting documents:", error);
-	});
-  
-  
-  for (const certificate_number of ["2012-0486", "abc"]) {
-	  console.log("Adding an event listener for certificate number:", certificate_number);
-	  // Add an event listener on the hyperlink
-	  let this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace(/-/g, ""));
-	  console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
-	  this_hyperlink.innerHTML += " -> Adding";
-	  
-	  this_hyperlink.addEventListener("click", link_clicked);
-	  
-	  console.log("Successfully added the event listener.");
-	  this_hyperlink.innerHTML += " -> Added";
-  }
+    .get()
+    .then(function(query_snapshot) {
+      query_snapshot.forEach(function(student) {
+        console.log("Student document snapshot:", student);
+        console.log("Student data:", student.data());
+        console.log("Certificate numbers:", student.get("certificate_numbers"));
+        
+        // Create a hyperlink to display each certificate.
+        for (const certificate_number of student.get("certificate_numbers")) {
+          console.log("Creating a hyperlink for certificate number:", certificate_number)
+          // Build a hyperlink
+          let hyperlink = "<p><a id=\"display_certificate_" + certificate_number.replace(/-/g, "") + "\" href=\"javascript:void(0);\">" + certificate_number + "</a></p>"
+          // Add the hyperlink to the HTML
+          LIST_OF_CERTIFICATES.innerHTML += hyperlink
+          
+          console.log("Adding an event listener for certificate number:", certificate_number);
+          // Add an event listener on the hyperlink
+          let this_hyperlink = document.querySelector("#display_certificate_" + certificate_number.replace(/-/g, ""));
+          console.log("  Adding to:", this_hyperlink, this_hyperlink.innerHTML);
+          this_hyperlink.innerHTML += " -> Adding";
+          
+          this_hyperlink.addEventListener("click", link_clicked);
+          
+          console.log("Successfully added the event listener.");
+          this_hyperlink.innerHTML += " -> Added";
+        }
+      });
+    })
+    .catch(function(error) {
+      console.log("Error getting documents:", error);
+    });
 }
 
 
