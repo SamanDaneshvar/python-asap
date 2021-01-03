@@ -46,11 +46,11 @@ function click_handler(event) {
   event.preventDefault();
   
   if (event.target.id == "search_by_cert_button") {
-    cert_button_clicked();
+    search_by_cert();
   }
   
   if (event.target.id == "search_by_name_button")
-    name_button_clicked();
+    search_by_name();
   
   if (event.target.id.startsWith("display_certificate_")) {
     const certificate_number = event.target.id.replace("display_certificate_", "");
@@ -61,7 +61,7 @@ function click_handler(event) {
 document.addEventListener("click", function() {click_handler(event);});
 
 
-async function cert_button_clicked() {
+async function search_by_cert() {
   console.log("Getting the data from Firestore.");
   await CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
     .get()
@@ -75,7 +75,20 @@ async function cert_button_clicked() {
 }
 
 
-async function name_button_clicked() {  
+function populate_certificate_info(cert_doc) {
+  // Populate the HTML document with the certificate information retrieved from the Firebase database.
+  // Args:
+  //   cert_doc: A Firebase document in the *certificates* collection. This is the returned result of the query.
+  // Returns:
+  //   None
+  
+  DISPLAY_FIRST_NAME.innerHTML = cert_doc.get("first_name");
+  DISPLAY_LAST_NAME.innerHTML = cert_doc.get("last_name");
+  DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
+}
+
+
+async function search_by_name() {  
   // Convert the query date of birth to a Firestore timestamp object
   let query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
   let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
@@ -105,19 +118,6 @@ async function name_button_clicked() {
 
 function link_clicked(certificate_number) {
   console.log(certificate_number);
-}
-
-
-function populate_certificate_info(cert_doc) {
-  // Populate the HTML document with the certificate information retrieved from the Firebase database.
-  // Args:
-  //   cert_doc: A Firebase document in the *certificates* collection. This is the returned result of the query.
-  // Returns:
-  //   None
-  
-  DISPLAY_FIRST_NAME.innerHTML = cert_doc.get("first_name");
-  DISPLAY_LAST_NAME.innerHTML = cert_doc.get("last_name");
-  DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
 }
 
 
