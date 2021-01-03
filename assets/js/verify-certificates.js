@@ -37,7 +37,11 @@ const DISPLAY_STATUS = document.querySelector("#status");
 
 
 function click_handler(event) {
-  console.log("Click Handler: Click made on", event.target, event, document)
+  TARGETS_TO_HANDLE = ["search_by_cert_button", "search_by_name_button", "display_certificate_*"]
+  
+  console.log("Click Handler: Click made on", event.target.id, event.target)
+  
+  
 }
 
 document.addEventListener("click", function() {click_handler(event);});
