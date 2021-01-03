@@ -89,6 +89,7 @@ async function button_clicked() {
 
 
 function link_clicked(certificate_number) {
-  console.log("The display certificate hyperlink has been clicked on certificate", certificate_number);
+  console.log("The display certificate hyperlink has been clicked.");
+  console.log(certificate_number);
   // console.log("  for:", certificate_number);
 }
