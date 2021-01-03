@@ -37,7 +37,7 @@ const DISPLAY_STATUS = document.querySelector("#status");
 
 
 function click_handler(event) {
-  
+  console.log("Click Handler: Click made on", event.target, event, document)
 }
 
 document.addEventListener("click", function() {click_handler(event);});
