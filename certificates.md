@@ -26,18 +26,18 @@ subTitle: Saman Daneshvar's Coding Academy
 ---
 <h3>Certificate Details</h3>
 
-&nbsp; | &nbsp;
-:- | :-
-Participant's Legal Name: | <span id="first_name" /> <span id="last_name" />
-Total Certificates:       | <span id="total_certificates" />
-Certificate Number:       | <span id="certificate_number" />
-Date Issued:              | <span id="date_of_issue" />
-Status:                   | <span id="status" />
-Course Name:              | <span id="course_name" />
-Course Length:            | <span id="course_length" />
-Curriculum:               | <a href="" id="course_curriculum"></a>
-Grade:                    | <a href="" id="certification_grade"></a>
-Achievability:            | <span id="achievability" />
+&nbsp;                                | &nbsp;
+:-                                    | :-
+Participant's Legal Name:&nbsp;&nbsp; | <span id="first_name" /> <span id="last_name" />
+Total Certificates:                   | <span id="total_certificates" />
+Certificate Number:                   | <span id="certificate_number" />
+Date Issued:                          | <span id="date_of_issue" />
+Status:                               | <span id="status" />
+Course Name:                          | <span id="course_name" />
+Course Length:                        | <span id="course_length" />
+Curriculum:                           | <a href="" id="course_curriculum"></a>
+Grade:                                | <a href="" id="certification_grade"></a>
+Achievability:                        | <span id="achievability" />
 
 
 
