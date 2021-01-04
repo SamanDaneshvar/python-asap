@@ -7,37 +7,39 @@ subTitle: Saman Daneshvar's Coding Academy
 
 <h3>Search by certificate number</h3>
 <label for="query_cert">Certificate number:</label>
-<input id="query_cert" />
+<input id="query_cert" placeholder="1801-1111"/>
 <button id="search_by_cert_button">Search</button>
+
+---
 
 <h3>Search by name and date of birth</h3>
 <label for="query_first_name">First name:</label>
-<input id="query_first_name" />
+<input id="query_first_name" placeholder="John" />
 <label for="query_last_name">Last name:</label>
-<input id="query_last_name" />
+<input id="query_last_name" placeholder="Smith" />
 <label for="query_date_of_birth">Date of birth:</label>
 <input id="query_date_of_birth" type="date" />
 <button id="search_by_name_button">Search</button>
 
----
 <h3>Participant's Certificates</h3>
 <div id="list_of_certificates"></div>
 
 ---
+
 <h3>Certificate Details</h3>
 
-&nbsp; | &nbsp;
-:- | :-
-Participant's Legal Name: | <span id="first_name" /> <span id="last_name" />
-Total Certificates:       | <span id="total_certificates" />
-Certificate Number:       | <span id="certificate_number" />
-Date Issued:              | <span id="date_of_issue" />
-Status:                   | <span id="status" />
-Course Name:              | <span id="course_name" />
-Course Length:            | <span id="course_length" />
-Curriculum:               | <a href="" id="course_curriculum"></a>
-Grade:                    | <a href="" id="certification_grade"></a>
-Achievability:            | <span id="achievability" />
+&nbsp;                                | &nbsp;
+:-                                    | :-
+Participant's Legal Name:&nbsp;&nbsp; | <span id="first_name" /> <span id="last_name" />
+Total Certificates:                   | <span id="total_certificates" />
+Certificate Number:                   | <span id="certificate_number" />
+Date Issued:                          | <span id="date_of_issue" />
+Status:                               | <span id="status" />
+Course Name:                          | <span id="course_name" />
+Course Length:                        | <span id="course_length" />
+Curriculum:                           | <a href="" id="course_curriculum"></a>
+Grade:                                | <a href="" id="certification_grade"></a>
+Achievability:                        | <span id="achievability" />
 
 
 
