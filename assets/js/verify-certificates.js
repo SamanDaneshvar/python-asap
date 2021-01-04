@@ -1,6 +1,6 @@
 // The app's Firebase project configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const FIREBASE_CONFIG = {
   apiKey: "AIzaSyCZ_QSTi7a41zQa4wtO-c53tpK1PVnFxYM",
   authDomain: "python-certificates.firebaseapp.com",
   projectId: "python-certificates",
@@ -10,13 +10,15 @@ const firebaseConfig = {
   measurementId: "G-Z6WM0SCQ0T"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(FIREBASE_CONFIG);
 
 
 // Named constants for the database references
 const DB = firebase.firestore();
 const CERTIFICATES_REF = DB.collection("certificates");
 const STUDENTS_REF = DB.collection("students");
+// Site URL
+const SITE_URL = document.location.origin;
 // For search by certificate number or name and date of birth
 const QUERY = {
   certificate_number: document.querySelector("#query_cert"),
@@ -90,7 +92,7 @@ async function populate_certificate_info(certificate_number) {
 	    DISPLAY.certificate_number.innerHTML = certificate_number;
 		DISPLAY.date_of_issue.innerHTML = certificate.get("date_of_issue").toDate().toLocaleString("default", {dateStyle: "long"});
 		DISPLAY.grade.innerHTML = certificate.get("grade");
-		DISPLAY.grade.href = "#" + certificate.get("grade").toLowerCase().replace(" ", "-");
+		DISPLAY.grade.href = "#" + certificate.get("grade").toLowerCase().replace(/ /g, "-");
 		DISPLAY.status.innerHTML = certificate.get("status");
         
 		// Get the student document
@@ -110,7 +112,7 @@ async function populate_certificate_info(certificate_number) {
 			DISPLAY.course_name.innerHTML = course.get("name");
 			DISPLAY.course_length.innerHTML = course.get("length");
 			DISPLAY.curriculum.innerHTML = course.get("short_name");
-			DISPLAY.curriculum.href = "{{ site.url }}/curriculum/#" + course.get("short_name").replace(" ", "-");
+			DISPLAY.curriculum.href = SITE_URL + "/curriculum/#" + course.get("short_name").replace(/ /g, "-");
 		  })
 		  .catch(err => console.error("Error getting course document", err));
 
