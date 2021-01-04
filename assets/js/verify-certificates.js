@@ -139,7 +139,7 @@ async function search_by_name() {
         // Create a hyperlink to display each certificate.
         for (const certificate_number of student.get("certificate_numbers")) {
           // Build a hyperlink
-          let cert_hyperlink = "<p>" + student.get("first_name") + " " + student.get("last_name") + ", <a href=\"\" id=\"display_certificate_" + certificate_number + "\">" + certificate_number + "</a></p>";
+          let cert_hyperlink = "<p>" + student.get("first_name") + " " + student.get("last_name") + ": <a href=\"\" id=\"display_certificate_" + certificate_number + "\">" + certificate_number + "</a></p>";
           // Add the hyperlink to the HTML
           LIST_OF_CERTIFICATES.innerHTML += cert_hyperlink
         }
