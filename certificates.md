@@ -17,8 +17,6 @@ subTitle: Saman Daneshvar's Coding Academy
 <input id="query_first_name" placeholder="John" />
 <label for="query_last_name">Last name:</label>
 <input id="query_last_name" placeholder="Smith" />
-<label for="query_date_of_birth">Date of birth:</label>
-<input id="query_date_of_birth" type="date" />
 <button id="search_by_name_button">Search</button>
 
 <h3>Participant's Certificates</h3>
