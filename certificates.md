@@ -25,7 +25,6 @@ subTitle: Saman Daneshvar's Coding Academy
 ---
 
 <h3>Certificate Details</h3>
-
 &nbsp;                                | &nbsp;
 :-                                    | :-
 Participant's Legal Name:&nbsp;&nbsp; | <span id="first_name" /> <span id="last_name" />
@@ -50,7 +49,7 @@ Achievability:                        | <span id="achievability" />
 <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
 
-<!-- Firebase SDKs are loaded before this -->
+<!-- Make sure Firebase SDKs are loaded before this -->
 <script src="{{ site.url }}/assets/js/verify-certificates.js"></script>
 
 
