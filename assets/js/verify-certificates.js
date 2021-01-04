@@ -87,10 +87,10 @@ async function populate_certificate_info(certificate_number) {
 	.then(function(certificate_snapshot) {
 	  console.log("Certificate snapshot:", certificate_snapshot);
 	  certificate_snapshot.forEach(function(certificate) {
-	    DISPLAY.certificate_number.innerHTML = certificate_number
-		DISPLAY.date_of_issue.innerHTML = certificate.get("date_of_issue").toDate();
+	    DISPLAY.certificate_number.innerHTML = certificate_number;
+		DISPLAY.date_of_issue.innerHTML = certificate.get("date_of_issue").toDate().toLocaleString("default", {dateStyle: "long"});
 		DISPLAY.grade.innerHTML = certificate.get("grade");
-		DISPLAY.grade.href = "#" + certificate.get("grade");
+		DISPLAY.grade.href = "#" + certificate.get("grade").toLowerCase().replace(" ", "-");
 		DISPLAY.status.innerHTML = certificate.get("status");
         
 		// Get the student document
@@ -110,7 +110,7 @@ async function populate_certificate_info(certificate_number) {
 			DISPLAY.course_name.innerHTML = course.get("name");
 			DISPLAY.course_length.innerHTML = course.get("length");
 			DISPLAY.curriculum.innerHTML = course.get("short_name");
-			DISPLAY.curriculum.href = "{{ site.url }}/curriculum/#" + course.get("short_name").replace(" ", "-")
+			DISPLAY.curriculum.href = "{{ site.url }}/curriculum/#" + course.get("short_name").replace(" ", "-");
 		  })
 		  .catch(err => console.error("Error getting course document", err));
 
@@ -139,7 +139,7 @@ async function search_by_name() {
         // Create a hyperlink to display each certificate.
         for (const certificate_number of student.get("certificate_numbers")) {
           // Build a hyperlink
-          let cert_hyperlink = "<p>" + student.get("first_name") + " " + student.get("last_name") + ", <a href=\"\" id=\"display_certificate_" + certificate_number + "\">" + certificate_number + "</a></p>"
+          let cert_hyperlink = "<p>" + student.get("first_name") + " " + student.get("last_name") + ", <a href=\"\" id=\"display_certificate_" + certificate_number + "\">" + certificate_number + "</a></p>";
           // Add the hyperlink to the HTML
           LIST_OF_CERTIFICATES.innerHTML += cert_hyperlink
         }
@@ -153,11 +153,11 @@ function cleanup_display() {
   // At a new search, clean up the previously displayed certificate information before displaying the new results.
    
   // For displaying the list of a student's certificate numbers
-  LIST_OF_CERTIFICATES.innerHTML = ""
+  LIST_OF_CERTIFICATES.innerHTML = "";
   
   // For displaying the retrieved certificate information
   for (const key in DISPLAY) {
-    DISPLAY[key].innerHTML = ""
+    DISPLAY[key].innerHTML = "";
   }
 }
 
