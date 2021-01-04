@@ -2,6 +2,7 @@
 layout: default
 title: Group Classes
 img: group-classes.jpg
+img_alt: Python ASAP group classes. A diverse group of young adults sitting at a desk with computers, notes, and tablets. A Python poster on the board.
 category: Services
 ---
 Group classes are offerred in various levels from <q>Zero</q> (no programming experience) to Advanced (considerable programming background), as well as Master Classes.
