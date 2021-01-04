@@ -10,6 +10,8 @@ subTitle: Saman Daneshvar's Coding Academy
 <input id="query_cert" />
 <button id="search_by_cert_button">Search</button>
 
+---
+
 <h3>Search by name and date of birth</h3>
 <label for="query_first_name">First name:</label>
 <input id="query_first_name" />
@@ -19,11 +21,11 @@ subTitle: Saman Daneshvar's Coding Academy
 <input id="query_date_of_birth" type="date" />
 <button id="search_by_name_button">Search</button>
 
----
 <h3>Participant's Certificates</h3>
 <div id="list_of_certificates"></div>
 
 ---
+
 <h3>Certificate Details</h3>
 
 &nbsp;                                | &nbsp;
