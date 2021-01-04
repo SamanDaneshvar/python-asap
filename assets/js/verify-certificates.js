@@ -85,35 +85,32 @@ async function populate_certificate_info(certificate_number) {
   await CERTIFICATES_REF.where("certificate_number", "==", certificate_number)
     .get()
 	.then(function(certificate_snapshot) {
-	  console.log("Query snapshot:", certificate_snapshot);
+	  console.log("Certificate snapshot:", certificate_snapshot);
 	  certificate_snapshot.forEach(function(certificate) {
 	    DISPLAY.certificate_number.innerHTML = certificate_number
 		DISPLAY.date_of_issue.innerHTML = certificate.get("date_of_issue").toDate();
 		DISPLAY.grade.innerHTML = certificate.get("grade");
+		DISPLAY.grade.href = "#" + certificate.get("grade");
 		DISPLAY.status.innerHTML = certificate.get("status");
         
 		// Get the student document
 		certificate.get("student_ref").get()
-		  .then(function(student_snapshot) {
-			console.log("Student snapshot:", student_snapshot);
-		    student_snapshot.forEach(function(student) {
-			  DISPLAY.first_name.innerHTML = student.get("first_name");
-			  DISPLAY.last_name.innerHTML = student.get("last_name");
-			  DISPLAY.total_certificates.innerHTML = student.get("certificate_numbers").length;
-			});
+		  .then(function(student) {
+			console.log("Student snapshot:", student);
+			DISPLAY.first_name.innerHTML = student.get("first_name");
+			DISPLAY.last_name.innerHTML = student.get("last_name");
+			DISPLAY.total_certificates.innerHTML = student.get("certificate_numbers").length;
 		  })
 		  .catch(err => console.error("Error getting student document", err));
         
 		// Get the course document
 		certificate.get("course_ref").get()
-		  .then(function(course_snapshot) {
-			console.log("Course snapshot:", course_snapshot);
-		    course_snapshot.forEach(function(course) {
-			  DISPLAY.course_name.innerHTML = course.get("name");
-			  DISPLAY.course_length.innerHTML = course.get("length");
-			  let curriculum_hyperlink = "<a href=\"{{ site.url }}/curriculum/#" + course.get("short_name").replace(" ", "-") + "\">" + course.get("short_name") + "</a>"
-			  DISPLAY.curriculum.innerHTML = curriculum_hyperlink;
-			});
+		  .then(function(course) {
+			console.log("Course snapshot:", course);
+			DISPLAY.course_name.innerHTML = course.get("name");
+			DISPLAY.course_length.innerHTML = course.get("length");
+			DISPLAY.curriculum.innerHTML = course.get("short_name");
+			DISPLAY.curriculum.href = "{{ site.url }}/curriculum/#" + course.get("short_name").replace(" ", "-")
 		  })
 		  .catch(err => console.error("Error getting course document", err));
 
@@ -133,9 +130,9 @@ async function search_by_name() {
   console.log("Getting the student data from Firestore.");
   await STUDENTS_REF.where("first_name", "==", QUERY.first_name.value).where("last_name", "==", QUERY.last_name.value).where("date_of_birth", "==", query_dob_timestamp)
     .get()
-    .then(function(query_snapshot) {
-	  console.log("Query snapshot:", query_snapshot);
-      query_snapshot.forEach(function(student) {
+    .then(function(student_snapshot) {
+	  console.log("Student snapshot:", student_snapshot);
+      student_snapshot.forEach(function(student) {
         console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
         
