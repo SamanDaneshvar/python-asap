@@ -158,7 +158,7 @@ function cleanup_display() {
   
   // For displaying the retrieved certificate information
   for (const key in DISPLAY) {
-    DISPLAY.key.innerHTML = ""
+    DISPLAY[key].innerHTML = ""
   }
 }
 
