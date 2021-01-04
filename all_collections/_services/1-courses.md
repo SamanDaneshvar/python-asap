@@ -2,6 +2,7 @@
 layout: default
 title: Courses Offered
 img: courses-offered.jpg
+img_alt: Programming courses offered by Python ASAP. Beautiful woman looking at a web browser on a desktop computer.
 category: Services
 ---
 ### Programming Languages
