@@ -113,6 +113,7 @@ async function populate_certificate_info(certificate_number) {
 			DISPLAY.course_length.innerHTML = course.get("length");
 			DISPLAY.curriculum.innerHTML = course.get("short_name");
 			DISPLAY.curriculum.href = SITE_URL + "/curriculum/#" + course.get("short_name").replace(/ /g, "-");
+			DISPLAY.achievability.innerHTML = course.get("grades_stats")[certificate.get("grade")] + "/" + course.get("grades_stats")["total"];
 		  })
 		  .catch(err => console.error("Error getting course document", err));
 
