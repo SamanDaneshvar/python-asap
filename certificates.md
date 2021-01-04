@@ -35,8 +35,8 @@ Date Issued:              | <span id="date_of_issue" />
 Status:                   | <span id="status" />
 Course Name:              | <span id="course_name" />
 Course Length:            | <span id="course_length" />
-Curriculum:    | <a href=""><span id="course_curriculum" /></a>
-Grade:         | <a href=""><span id="certification_grade" /></a>
+Curriculum:               | <a href="" id="course_curriculum"></a>
+Grade:                    | <a href="" id="certification_grade"></a>
 Achievability:            | <span id="achievability" />
 
 
