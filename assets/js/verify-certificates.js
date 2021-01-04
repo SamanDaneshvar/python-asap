@@ -19,12 +19,11 @@ const CERTIFICATES_REF = DB.collection("certificates");
 const STUDENTS_REF = DB.collection("students");
 // Site URL
 const SITE_URL = document.location.origin;
-// For search by certificate number or name and date of birth
+// For search by certificate number or by name
 const QUERY = {
   certificate_number: document.querySelector("#query_cert"),
   first_name: document.querySelector("#query_first_name"),
   last_name: document.querySelector("#query_last_name"),
-  dob_text: document.querySelector("#query_date_of_birth"),
 };
 // For displaying the list of a student's certificate numbers
 const LIST_OF_CERTIFICATES = document.querySelector("#list_of_certificates");
@@ -123,15 +122,10 @@ async function populate_certificate_info(certificate_number) {
 }
 
 
-async function search_by_name() {  
-  // Convert the query date of birth to a Firestore timestamp object
-  let query_dob_date = new Date(QUERY.dob_text.value + "T00:00:00-05:00");
-  let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
-  console.log("Query date of birth as JS Date and Firebase timestamp:", query_dob_date, query_dob_timestamp);
-  
+async function search_by_name() {
   // Query the *students* collection
   console.log("Getting the student data from Firestore.");
-  await STUDENTS_REF.where("first_name", "==", QUERY.first_name.value).where("last_name", "==", QUERY.last_name.value).where("date_of_birth", "==", query_dob_timestamp)
+  await STUDENTS_REF.where("first_name", "==", QUERY.first_name.value).where("last_name", "==", QUERY.last_name.value)
     .get()
     .then(function(student_snapshot) {
 	  console.log("Student snapshot:", student_snapshot);
