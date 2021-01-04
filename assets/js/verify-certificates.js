@@ -95,6 +95,7 @@ async function populate_certificate_info(certificate_number) {
 		// Get the student document
 		certificate.get("student_ref").get()
 		  .then(function(student_snapshot) {
+			console.log("Student snapshot:", student_snapshot);
 		    student_snapshot.forEach(function(student) {
 			  DISPLAY.first_name.innerHTML = student.get("first_name");
 			  DISPLAY.last_name.innerHTML = student.get("last_name");
@@ -106,6 +107,7 @@ async function populate_certificate_info(certificate_number) {
 		// Get the course document
 		certificate.get("course_ref").get()
 		  .then(function(course_snapshot) {
+			console.log("Course snapshot:", course_snapshot);
 		    course_snapshot.forEach(function(course) {
 			  DISPLAY.course_name.innerHTML = course.get("name");
 			  DISPLAY.course_length.innerHTML = course.get("length");
