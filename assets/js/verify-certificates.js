@@ -93,7 +93,7 @@ async function populate_certificate_info(certificate_number) {
 		DISPLAY.status.innerHTML = certificate.get("status");
         
 		// Get the student document
-		await certificate.get("student_ref").get()
+		certificate.get("student_ref").get()
 		  .then(function(student_snapshot) {
 		    student_snapshot.forEach(function(student) {
 			  DISPLAY.first_name.innerHTML = student.get("first_name");
@@ -104,7 +104,7 @@ async function populate_certificate_info(certificate_number) {
 		  .catch(err => console.error("Error getting student document", err));
         
 		// Get the course document
-		await certificate.get("course_ref").get()
+		certificate.get("course_ref").get()
 		  .then(function(course_snapshot) {
 		    course_snapshot.forEach(function(course) {
 			  DISPLAY.course_name.innerHTML = course.get("name");
