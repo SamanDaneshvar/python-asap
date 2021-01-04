@@ -13,24 +13,33 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
+// Named constants for the database references
 const DB = firebase.firestore();
 const CERTIFICATES_REF = DB.collection("certificates");
 const STUDENTS_REF = DB.collection("students");
-
-// For search by certificate number
-const QUERY_CERTIFICATE_NUMBER = document.querySelector("#query_cert");
-// For search by name and date of birth
-const QUERY_FIRST_NAME = document.querySelector("#query_first_name");
-const QUERY_LAST_NAME = document.querySelector("#query_last_name");
-const QUERY_DOB_TEXT = document.querySelector("#query_date_of_birth");
-// For displaying the list of student's certificate numbers
+// For search by certificate number or name and date of birth
+const QUERY = {
+  certificate_number: document.querySelector("#query_cert"),
+  first_name: document.querySelector("#query_first_name"),
+  last_name: document.querySelector("#query_last_name"),
+  dob_text: document.querySelector("#query_date_of_birth"),
+};
+// For displaying the list of a student's certificate numbers
 const LIST_OF_CERTIFICATES = document.querySelector("#list_of_certificates");
-// For displaying the retrieved certificate info
-const DISPLAY_FIRST_NAME = document.querySelector("#first_name");
-const DISPLAY_LAST_NAME = document.querySelector("#last_name");
-const DISPLAY_CERTIFICATE_NUMBER = document.querySelector("#certificate_number");
-// ...
-const DISPLAY_STATUS = document.querySelector("#status");
+// For displaying the retrieved certificate information
+const DISPLAY = {
+  first_name: document.querySelector("#first_name"),
+  last_name: document.querySelector("#last_name"),
+  total_certificates: document.querySelector("#total_certificates"),
+  certificate_number: document.querySelector("#certificate_number"),
+  date_of_issue: document.querySelector("#date_of_issue"),
+  status: document.querySelector("#status"),
+  course_name: document.querySelector("#course_name"),
+  course_length: document.querySelector("#course_length"),
+  curriculum: document.querySelector("#course_curriculum"),
+  grade: document.querySelector("#certification_grade"),
+  achievability: document.querySelector("#achievability"),
+};
 
 
 function click_handler(event) {
@@ -42,63 +51,88 @@ function click_handler(event) {
 	return;
   }
   
-  // Disable the default action of the event (don't open the URL).
+  // Disable the default action of the event (don't open the URL of the target).
   event.preventDefault();
   
   if (event.target.id == "search_by_cert_button") {
-    search_by_cert();
+	cleanup_display();
+    populate_certificate_info(QUERY.certificate_number.value);
   }
   
-  if (event.target.id == "search_by_name_button")
-    search_by_name();
+  if (event.target.id == "search_by_name_button") {
+    cleanup_display();
+	search_by_name();
+  }
   
   if (event.target.id.startsWith("display_certificate_")) {
     const certificate_number = event.target.id.replace("display_certificate_", "");
-	link_clicked(certificate_number);
+	populate_certificate_info(certificate_number);
   }
 }
 
 document.addEventListener("click", function() {click_handler(event);});
 
 
-async function search_by_cert() {
-  console.log("Getting the data from Firestore.");
-  await CERTIFICATES_REF.where("certificate_number", "==", QUERY_CERTIFICATE_NUMBER.value)
-    .get()
-    .then(function(query_snapshot) {
-      query_snapshot.forEach(function(certificate) {
-        console.log(certificate.data());
-        populate_certificate_info(certificate);
-      });
-    })
-	.catch(err => console.error("Error getting documents:", err));
-}
-
-
-function populate_certificate_info(cert_doc) {
+async function populate_certificate_info(certificate_number) {
   // Populate the HTML document with the certificate information retrieved from the Firebase database.
   // Args:
-  //   cert_doc: A Firebase document in the *certificates* collection. This is the returned result of the query.
+  //   certificate_number: A string denoting the certificate number of a Firebase document in the *certificates* collection.
   // Returns:
   //   None
   
-  DISPLAY_FIRST_NAME.innerHTML = cert_doc.get("first_name");
-  DISPLAY_LAST_NAME.innerHTML = cert_doc.get("last_name");
-  DISPLAY_CERTIFICATE_NUMBER.innerHTML = cert_doc.get("certificate_number");
+  // Query the *certificates* collection
+  console.log("Getting the certificate data from Firestore.");
+  await CERTIFICATES_REF.where("certificate_number", "==", certificate_number)
+    .get()
+	.then(function(certificate_snapshot) {
+	  console.log("Query snapshot:", certificate_snapshot);
+	  certificate_snapshot.forEach(function(certificate) {
+	    DISPLAY.certificate_number.innerHTML = certificate_number
+		DISPLAY.date_of_issue.innerHTML = certificate.get("date_of_issue").toDate();
+		DISPLAY.grade.innerHTML = certificate.get("grade");
+		DISPLAY.status.innerHTML = certificate.get("status");
+        
+		// Get the student document
+		await certificate.get("student_ref").get()
+		  .then(function(student_snapshot) {
+		    student_snapshot.forEach(function(student) {
+			  DISPLAY.first_name.innerHTML = student.get("first_name");
+			  DISPLAY.last_name.innerHTML = student.get("last_name");
+			  DISPLAY.total_certificates.innerHTML = student.get("certificate_numbers").length;
+			});
+		  })
+		  .catch(err => console.error("Error getting student document", err));
+        
+		// Get the course document
+		await certificate.get("course_ref").get()
+		  .then(function(course_snapshot) {
+		    course_snapshot.forEach(function(course) {
+			  DISPLAY.course_name.innerHTML = course.get("name");
+			  DISPLAY.course_length.innerHTML = course.get("length");
+			  let curriculum_hyperlink = "<a href=\"{{ site.url }}/curriculum/#" + course.get("short_name").replace(" ", "-") + "\">" + course.get("short_name") + "</a>"
+			  DISPLAY.curriculum.innerHTML = curriculum_hyperlink;
+			});
+		  })
+		  .catch(err => console.error("Error getting course document", err));
+
+	  });
+	})
+	.catch(err => console.error("Error getting certificate document", err));
 }
 
 
 async function search_by_name() {  
   // Convert the query date of birth to a Firestore timestamp object
-  let query_dob_date = new Date(QUERY_DOB_TEXT.value + "T00:00:00-05:00");
+  let query_dob_date = new Date(QUERY.dob_text.value + "T00:00:00-05:00");
   let query_dob_timestamp = firebase.firestore.Timestamp.fromDate(query_dob_date);
   console.log("Query date of birth as JS Date and Firebase timestamp:", query_dob_date, query_dob_timestamp);
   
   // Query the *students* collection
   console.log("Getting the student data from Firestore.");
-  await STUDENTS_REF.where("first_name", "==", QUERY_FIRST_NAME.value).where("last_name", "==", QUERY_LAST_NAME.value).where("date_of_birth", "==", query_dob_timestamp)
+  await STUDENTS_REF.where("first_name", "==", QUERY.first_name.value).where("last_name", "==", QUERY.last_name.value).where("date_of_birth", "==", query_dob_timestamp)
     .get()
     .then(function(query_snapshot) {
+	  console.log("Query snapshot:", query_snapshot);
       query_snapshot.forEach(function(student) {
         console.log("Student document snapshot:", student);
         console.log("Student data:", student.data());
@@ -106,18 +140,26 @@ async function search_by_name() {
         // Create a hyperlink to display each certificate.
         for (const certificate_number of student.get("certificate_numbers")) {
           // Build a hyperlink
-          let hyperlink = "<p><a id=\"display_certificate_" + certificate_number + "\" href=\"\">" + certificate_number + "</a></p>"
+          let cert_hyperlink = "<p>" + student.get("first_name") + " " + student.get("last_name") + ", <a href=\"\" id=\"display_certificate_" + certificate_number + "\">" + certificate_number + "</a></p>"
           // Add the hyperlink to the HTML
-          LIST_OF_CERTIFICATES.innerHTML += hyperlink
+          LIST_OF_CERTIFICATES.innerHTML += cert_hyperlink
         }
       });
     })
-	.catch(err => console.error("Error getting documents:", err));
+	.catch(err => console.error("Error getting student documents:", err));
 }
 
 
-function link_clicked(certificate_number) {
-  console.log(certificate_number);
+function cleanup_display() {
+  // At a new search, clean up the previously displayed certificate information before displaying the new results.
+   
+  // For displaying the list of a student's certificate numbers
+  LIST_OF_CERTIFICATES.innerHTML = ""
+  
+  // For displaying the retrieved certificate information
+  for (const key in DISPLAY) {
+    DISPLAY.key.innerHTML = ""
+  }
 }
 
 
