@@ -8,7 +8,9 @@ description: >
   Python ASAP is a brilliant set of computer programming education services offered by Saman Daneshvar's Coding Academy.
   No matter what level of coding skills you have today, Python ASAP is the best next move for you. Take a free placement test today.
 author: Saman Daneshvar
-email: info@pythonasap.com
+# Enter only the prefix of the email addresses.
+contact-email: hello
+email-domain: pythonasap.com
 
 google-analytics: G-BVS70MVTTB
 

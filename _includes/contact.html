@@ -21,7 +21,7 @@
 
 <script>
   function reveal(element) {
-    const ADDRESS = "support" + String.fromCharCode(64) + "pythonasap.com"
+    const ADDRESS = {{ site.contact-email }} + String.fromCharCode(64) + {{ site.email-domain }}
     element.href = ":otliam".split("").reverse().join("") + ADDRESS
     element.innerHTML = ADDRESS
   }
