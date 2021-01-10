@@ -6,10 +6,10 @@
 
 	  <p><i class="far fa-comment"></i>&nbsp; Send us a message using the contact form below.</p>
       <p><i class="far fa-envelope"></i>&nbsp; Email:
-        <a href="mailto:honeypot21@pythonasap.com" onmouseover="reveal(this)" ontouchstart="reveal(this)">Bot defense. Hover over to reveal the address.</a>
+        <a id="email" href="mailto:honeypot21@pythonasap.com" onmouseover="reveal(this)" ontouchstart="reveal(this)">Bot defense. Hover over to reveal the address.</a>
       </p>
-	  <p><i class="fas fa-phone-volume"></i>&nbsp; Call:
-		(800) 111-2222
+	  <p><i class="fas fa-phone-alt"></i>&nbsp; Call:
+		<a id="phone" href="javascript:void(0);" onmouseover="reveal(this)" ontouchstart="reveal(this)">Bot defense. Hover over to reveal the number.</a>
 	  </p>
 	  <p><i class="fab fa-telegram" style="color:#28a8e9;"></i>&nbsp; Telegram: <a href="https://t.me/smndnv">@smndnv</a></p>
       <br>
@@ -24,8 +24,13 @@
 
 <script>
   function reveal(element) {
-    const ADDRESS = "{{ site.contact-email }}" + String.fromCharCode(64) + "{{ site.email-domain }}"
-    element.href = ":otliam".split("").reverse().join("") + ADDRESS
-    element.innerHTML = ADDRESS
+    if (element.id == "email") {
+      const ADDRESS = "{{ site.contact-email }}" + String.fromCharCode(64) + "{{ site.email-domain }}";
+      element.innerHTML = ADDRESS;
+	  element.href = ":otliam".split("").reverse().join("") + ADDRESS;
+	} else if (element.id == "phone") {
+	  element.innerHTML = "{{ site.phone }}".split("").reverse().join("");
+	  element.href = "{{ site.phone-url }}".split("").reverse().join("");
+	}
   }
 </script>
