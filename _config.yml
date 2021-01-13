@@ -21,6 +21,10 @@ google-analytics: G-BVS70MVTTB
 #    Jekyll & Plugins     #
 # ----------------------- #
 
+# Jekyll plugins
+plugins:
+  - jekyll-sitemap
+
 # Build settings
 markdown: kramdown
 permalink: pretty
