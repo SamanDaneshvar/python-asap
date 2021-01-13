@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Certificates
-subTitle: Saman Daneshvar's Coding Academy
+subTitle: Python ASAP
+sitemap: false
 ---
 # Verify a certificate
 
