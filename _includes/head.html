@@ -12,6 +12,10 @@
 </script>
 {% endif %}
 
+<!-- Note that in Liquid, *nil* is not equal to *false*, even though they both evaluate to *falsy* -->
+{% if page.sitemap == false %}
+<meta name="robots" content="noindex">
+{% endif %}
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
