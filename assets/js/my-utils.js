@@ -19,3 +19,32 @@ function parse_query_string() {
   console.log(parsed_params);
   return parsed_params;
 }
+
+
+function google_lucky(query) {
+  // Resolve a query into the URL of the first Google search result (the “I'm feeling lucky” feature).
+  // Uses a proxy to work around the cross-origin resource sharing (CORS) restrictions.
+  //
+  // Args:
+  //   query: Any search query.
+  //
+  // Reutrns:
+  //   A URL. This is the first Google search result for the query.
+  
+  const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
+  let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
+  
+  let xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, true);
+  xhttp.send();
+  
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	  // The X-Final-URL response header provides the final URL, after following all redirects.
+      let final_url = this.getResponseHeader('X-Final-URL');
+      let result_url = final_url.replace("https://www.google.com/url?q=", "");
+	  
+	  return result_url;
+    }
+  };
+}
