@@ -15,8 +15,9 @@ function parse_query_string() {
 	parsed_params[pair[0]] = pair[1];
   }
   
-  console.log('Query string:', query);
-  console.log(parsed_params);
+  // For debugging:
+  // console.log('Query string:', query);
+  // console.log(parsed_params);
   return parsed_params;
 }
 
@@ -35,17 +36,18 @@ function google_lucky(query) {
   let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
   
   let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = callback;  // The callback function
   xhttp.open("GET", url, true);
   xhttp.send();
-  xhttp.onreadystatechange = callback;  // The callback function
   
-   function callback() {
+  function callback() {
     if (this.readyState == 4 && this.status == 200) {
 	  // The X-Final-URL response header provides the final URL, after following all redirects.
       let final_url = this.getResponseHeader('X-Final-URL');
       let result_url = final_url.replace("https://www.google.com/url?q=", "");
 	  
-	  alert(result_url);
+	  alert('Woohoo!');
+	  
 	  return result_url;
     }
   };
