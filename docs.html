@@ -1,0 +1,18 @@
+---
+title: Python 3 documentation
+sitemap: false
+---
+<html>
+{% include head.html %}
+<body>
+<iframe id="embedded-document" src="" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+<script src="{{ site.url }}/assets/js/my-utils.js"></script>
+<script>
+  EMBED = document.querySelector("#embedded-document");
+  query = parse_query_string();
+  EMBED.src = "https://duckduckgo.com/?q=!ducky+" + query['q'] + "+site:https://docs.python.org/3/";
+</script>
+
+</body>
+</html>
