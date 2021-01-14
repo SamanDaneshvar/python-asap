@@ -9,9 +9,9 @@ sitemap: false
 
 <script src="{{ site.url }}/assets/js/my-utils.js"></script>
 <script>
-  EMBED = document.querySelector("#embedded-document");
   query = parse_query_string();
-  EMBED.src = "https://duckduckgo.com/?q=!ducky+" + query['q'] + "+site:https://docs.python.org/3/";
+  EMBED = document.querySelector("#embedded-document");
+  EMBED.src = google_lucky(query['q'] + "+site:https://docs.python.org/3/");
 </script>
 
 </body>
