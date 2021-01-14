@@ -15,7 +15,7 @@ function parse_query_string() {
 	parsed_params[pair[0]] = pair[1];
   }
   
-  console.log(query);
+  console.log('Query string:', query);
   console.log(parsed_params);
   return parsed_params;
 }
