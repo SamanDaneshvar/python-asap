@@ -9,7 +9,8 @@ sitemap: false
 <script src="{{ site.url }}/assets/js/my-utils.js"></script>
 <script>
   EMBED = document.querySelector("#embedded-document");
-  EMBED.src = parse_query_string()['url'];
+  query = parse_query_string();
+  EMBED.src = query['url'];
 </script>
 
 </body>
