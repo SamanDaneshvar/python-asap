@@ -35,8 +35,8 @@ function google_lucky(query) {
   let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
   
   let xhttp = new XMLHttpRequest();
-  xhttp.open("GET", url, true);
-  xhttp.send();
+  alert(xhttp.open("GET", url, true));
+  alert(xhttp.send());
   
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
