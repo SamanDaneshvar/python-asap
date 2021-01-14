@@ -19,5 +19,3 @@ function parse_query_string() {
   console.log(parsed_params);
   return parsed_params;
 }
-
-console.log('my-utils.js loaded.');
