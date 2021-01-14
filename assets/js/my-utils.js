@@ -35,8 +35,6 @@ function google_lucky(query) {
   let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
   
   let xhttp = new XMLHttpRequest();
-  xhttp.open("GET", url, true).then(function(value) {alert(value);});
-  xhttp.send().then(function(value) {alert(value);});
   
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -47,6 +45,9 @@ function google_lucky(query) {
 	  return result_url;
     }
   };
+  
+  xhttp.open("GET", url, true).then(function(value) {alert(value);});
+  xhttp.send().then(function(value) {alert(value);});
   
   return 'bye!';
 }
