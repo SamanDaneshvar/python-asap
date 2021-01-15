@@ -11,13 +11,15 @@ sitemap: false
 <script>
   query = parse_query_string();
   EMBED = document.querySelector("#embedded-document");
-  console.log('This is before the google_lucky function.');
+  console.log('This is written BEFORE the google_lucky function.');
   
   google_lucky(query['q'] + "+site:https://docs.python.org/3/")
     .then(result => {EMBED.src = result;})
     .catch(err => {console.error('Error in getting the first Google search result:', err);});
   
-  console.log('This is after the google_lucky function.');
+  console.log('This is written AFTER the google_lucky function.');
+  
+  setTimeout(function() {console.log('This is 5 seconds later.');}, 5000);
 </script>
 
 </body>
