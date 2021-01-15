@@ -13,22 +13,22 @@ async function main() {
   query = parse_query_string();
   EMBED = document.querySelector("#embedded-document");
   
-  console.log('This is written BEFORE the FIRST google_lucky function call.');
+  console.log('BEFORE the FIRST call.');
   
   try {
     EMBED.src = await google_lucky(query['q'] + "+site:https://docs.python.org/3/");
   } catch(err) {console.error('Error in getting the first Google search result:', err);}
   
-  console.log('This is written AFTER the FIRST google_lucky function call.');
+  console.log('AFTER the FIRST call.');
   
   
-  console.log('This is written BEFORE the SECOND google_lucky function call.');
+  console.log('BEFORE the SECOND call.');
   
   try {
-    EMBED.src = await google_lucky(query['q'] + "+site:https://docs.python.org/3/");
+    EMBED.src = await google_lucky('microsoft');
   } catch(err) {console.error('Error in getting the second Google search result:', err);}
   
-  console.log('This is written AFTER the SECOND google_lucky function call.');
+  console.log('AFTER the SECOND call.');
 }
 
 

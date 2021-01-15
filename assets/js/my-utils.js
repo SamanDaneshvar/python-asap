@@ -47,9 +47,7 @@ function google_lucky(query) {
       let final_url = this.getResponseHeader('X-Final-URL');
       let result_url = final_url.replace('https://www.google.com/url?q=', '');
       
-      console.log('Success!');
-      console.log(result_url);
-      console.log('-------');
+      console.log('google_lucky success!', result_url);
       resolve(result_url);
     }
   });
