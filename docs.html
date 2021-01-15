@@ -9,6 +9,7 @@ sitemap: false
 
 <script src="{{ site.url }}/assets/js/my-utils.js"></script>
 <script>
+async function main() {
   query = parse_query_string();
   EMBED = document.querySelector("#embedded-document");
   
@@ -30,6 +31,10 @@ sitemap: false
   
   console.log('This is written AFTER the SECOND google_lucky function call.');
   setTimeout(function() {console.log('This is 5 seconds later.');}, 5000);
+}
+
+
+await main();
 </script>
 
 </body>
