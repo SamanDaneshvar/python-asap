@@ -11,7 +11,9 @@ sitemap: false
 <script>
   query = parse_query_string();
   EMBED = document.querySelector("#embedded-document");
-  EMBED.src = google_lucky(query['q'] + "+site:https://docs.python.org/3/");
+  google_lucky(query['q'] + "+site:https://docs.python.org/3/")
+    .then(result => {EMBED.src = result;})
+    .catch(err => {console.error('Error in getting the first Google search result:', err);});
 </script>
 
 </body>
