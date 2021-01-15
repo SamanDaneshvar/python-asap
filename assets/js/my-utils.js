@@ -36,26 +36,21 @@ function google_lucky(query) {
     const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
     let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
     
-    let result_url = "before the response callback";
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = response_callback;  // The callback function
-    xhttp.open("GET", url, true);
-    xhttp.send();
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', url, true);
+    xmlhttp.onload = success_callback;  // The callback function, triggered when the HTTP request completes successfully.
+    xmlhttp.onerror = function() {reject('Error in HTTP request: readyState = ' + this.readyState + ' and status = ' + this.status);};
+    xmlhttp.send();
     
-    function response_callback() {
-      if (this.readyState == 4 && this.status == 200) {
-        // The X-Final-URL response header provides the final URL, after following all redirects.
-        let final_url = this.getResponseHeader('X-Final-URL');
-        result_url = final_url.replace("https://www.google.com/url?q=", "");
-        
-        console.log('Beep!');
-        console.log(result_url);
-		console.log('-------');
-        resolve(result_url);
-      }
-      else {
-        reject('Error in HTTP request: readyState = ' + this.readyState + ' and status = ' + this.status);
-      }
+    function success_callback() {
+      // The X-Final-URL response header provides the final URL, after following all redirects.
+      let final_url = this.getResponseHeader('X-Final-URL');
+      let result_url = final_url.replace('https://www.google.com/url?q=', '');
+      
+      console.log('Success!');
+      console.log(result_url);
+      console.log('-------');
+      resolve(result_url);
     }
   });
 }
