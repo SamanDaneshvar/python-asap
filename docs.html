@@ -13,22 +13,9 @@ async function main() {
   query = parse_query_string();
   EMBED = document.querySelector("#embedded-document");
   
-  console.log('BEFORE the FIRST call.');
-  
   try {
     EMBED.src = await google_lucky(query['q'] + "+site:https://docs.python.org/3/");
-  } catch(err) {console.error('Error in getting the first Google search result:', err);}
-  
-  console.log('AFTER the FIRST call.');
-  
-  
-  console.log('BEFORE the SECOND call.');
-  
-  try {
-    EMBED.src = await google_lucky('microsoft');
-  } catch(err) {console.error('Error in getting the second Google search result:', err);}
-  
-  console.log('AFTER the SECOND call.');
+  } catch(err) {console.error('Error in google_lucky:', err);}
 }
 
 
