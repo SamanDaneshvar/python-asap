@@ -35,6 +35,7 @@ function google_lucky(query) {
   const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
   let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
   
+  let result_url = "before the response callback";
   let xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = response_callback;  // The callback function
   xhttp.open("GET", url, true);
@@ -44,14 +45,12 @@ function google_lucky(query) {
     if (this.readyState == 4 && this.status == 200) {
 	  // The X-Final-URL response header provides the final URL, after following all redirects.
       let final_url = this.getResponseHeader('X-Final-URL');
-      let result_url = final_url.replace("https://www.google.com/url?q=", "");
+      result_url = final_url.replace("https://www.google.com/url?q=", "");
 	  
 	  alert('Beep!');
 	  alert(this.responseURL);
-	  
-	  return result_url;
     }
   };
   
-  return 'bye!';
+  return result_url;
 }
