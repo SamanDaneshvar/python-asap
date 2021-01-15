@@ -13,18 +13,23 @@ sitemap: false
   EMBED = document.querySelector("#embedded-document");
   
   console.log('This is written BEFORE the FIRST google_lucky function call.');
-  google_lucky(query['q'] + "+site:https://docs.python.org/3/")
-    .then(result => {EMBED.src = result;})
-    .catch(err => {console.error('Error in getting the first Google search result:', err);});
+  
+  try {
+    EMBED.src = await google_lucky(query['q'] + "+site:https://docs.python.org/3/");
+  } catch(err) {console.error('Error in getting the first Google search result:', err);}
+  
   console.log('This is written AFTER the FIRST google_lucky function call.');
-  setTimeout(function() {console.log('This is 5 seconds later.');}, 3000);
+  setTimeout(function() {console.log('This is 5 seconds later.');}, 5000);
+  
   
   console.log('This is written BEFORE the SECOND google_lucky function call.');
-  google_lucky('microsoft')
-    .then(result => {EMBED.src = result;})
-    .catch(err => {console.error('Error in getting the first Google search result:', err);});
+  
+  try {
+    EMBED.src = await google_lucky(query['q'] + "+site:https://docs.python.org/3/");
+  } catch(err) {console.error('Error in getting the first Google search result:', err);}
+  
   console.log('This is written AFTER the SECOND google_lucky function call.');
-  setTimeout(function() {console.log('This is 5 seconds later.');}, 3000);
+  setTimeout(function() {console.log('This is 5 seconds later.');}, 5000);
 </script>
 
 </body>
