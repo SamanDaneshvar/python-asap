@@ -48,7 +48,7 @@ function google_lucky(query) {
       result_url = final_url.replace("https://www.google.com/url?q=", "");
 	  
 	  alert('Beep!');
-	  alert(this.responseURL);
+	  alert(result_url);
     }
   };
   
