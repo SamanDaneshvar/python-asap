@@ -36,17 +36,17 @@ function google_lucky(query) {
   let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
   
   let xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = callback;  // The callback function
+  xhttp.onreadystatechange = response_callback;  // The callback function
   xhttp.open("GET", url, true);
   xhttp.send();
   
-  function callback() {
+  function response_callback() {
     if (this.readyState == 4 && this.status == 200) {
 	  // The X-Final-URL response header provides the final URL, after following all redirects.
       let final_url = this.getResponseHeader('X-Final-URL');
       let result_url = final_url.replace("https://www.google.com/url?q=", "");
 	  
-	  alert('Woohoo!');
+	  alert(this.responseURL);
 	  
 	  return result_url;
     }
