@@ -54,7 +54,7 @@ function google_lucky(query) {
         resolve(result_url);
       }
       else {
-        reject('Error in HTTP request: readyState = ' + this.readyState + 'and status = ' + this.status);
+        reject('Error in HTTP request: readyState = ' + this.readyState + ' and status = ' + this.status);
       }
     }
   });
