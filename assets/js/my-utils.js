@@ -46,6 +46,7 @@ function google_lucky(query) {
       let final_url = this.getResponseHeader('X-Final-URL');
       let result_url = final_url.replace("https://www.google.com/url?q=", "");
 	  
+	  alert('Beep!');
 	  alert(this.responseURL);
 	  
 	  return result_url;
