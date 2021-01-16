@@ -34,7 +34,8 @@ function google_lucky(query) {
   
   return new Promise(function(resolve, reject) {
     // const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-	const CORS_PROXY = 'https://cors.smndnv.workers.dev/?';
+	// const CORS_PROXY = 'https://cors.smndnv.workers.dev/?';
+	const CORS_PROXY = 'https://cors-sd.herokuapp.com/';
     let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
 	console.log('Sending an HTTP request for:', url);
     
