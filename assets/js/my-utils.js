@@ -47,11 +47,11 @@ function google_lucky(query) {
     
     function success_callback() {
       // The X-Final-URL response header provides the final URL, after following all redirects.
-	  console.log('All response headers:', this.getAllResponseHeaders());
+	  console.log('All response headers:\n\n' + this.getAllResponseHeaders());
       let final_url = this.getResponseHeader('X-Final-URL');
       let result_url = final_url.replace('https://www.google.com/url?q=', '');
       
-      console.log('google_lucky success!', result_url);
+      console.log('google_lucky success!\n' + result_url);
       resolve(result_url);
     }
   });
