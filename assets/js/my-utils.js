@@ -43,10 +43,10 @@ function google_lucky(query) {
     xmlhttp.onload = success_callback;  // The callback function, triggered when the HTTP request completes successfully.
     xmlhttp.onerror = function() {reject('Error in HTTP request: readyState = ' + this.readyState + ' and status = ' + this.status);};
     xmlhttp.send();
-	console.log('All response headers:', xmlhttp.getAllResponseHeaders());
     
     function success_callback() {
       // The X-Final-URL response header provides the final URL, after following all redirects.
+	  console.log('All response headers:', xmlhttp.getAllResponseHeaders());
       let final_url = this.getResponseHeader('X-Final-URL');
       let result_url = final_url.replace('https://www.google.com/url?q=', '');
       
