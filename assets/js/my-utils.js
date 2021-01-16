@@ -33,8 +33,7 @@ function google_lucky(query) {
   //   <Promise: string> A URL. This is the first Google search result for the query.
   
   return new Promise(function(resolve, reject) {
-    // const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
-	const CORS_PROXY = 'https://test.cors.workers.dev/?';
+    const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
     let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
     
     let xmlhttp = new XMLHttpRequest();
