@@ -36,12 +36,14 @@ function google_lucky(query) {
     // const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 	const CORS_PROXY = 'https://cors.smndnv.workers.dev/?';
     let url = CORS_PROXY + 'https://www.google.com/search?btnI=I&q=' + query;
+	console.log('Sending an HTTP request for:', url);
     
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.open('GET', url, true);
     xmlhttp.onload = success_callback;  // The callback function, triggered when the HTTP request completes successfully.
     xmlhttp.onerror = function() {reject('Error in HTTP request: readyState = ' + this.readyState + ' and status = ' + this.status);};
     xmlhttp.send();
+	console.log('All response headers:', xmlhttp.getAllResponseHeaders());
     
     function success_callback() {
       // The X-Final-URL response header provides the final URL, after following all redirects.
