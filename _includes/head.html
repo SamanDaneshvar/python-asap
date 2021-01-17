@@ -35,13 +35,15 @@
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="{{ site.url }}/assets/css/bootstrap.min.css">
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="{{ site.url }}/assets/css/landing-page.css">
+<!-- Custom CSS (preloaded) -->
+<link rel="preload" as="style" href="{{ site.url }}/assets/css/landing-page.css" onload="this.onload=null; this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ site.url }}/assets/css/landing-page.css"></noscript>
 
 <!-- Custom Fonts -->
-<!-- Lato, Google Fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
-<!-- Font Awesome -->
+<!-- Lato, Google Fonts (preloaded) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" onload="this.onload=null; this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"></noscript>
+<!-- Font Awesome (deferred) -->
 <script defer src="https://kit.fontawesome.com/0e9764a93c.js" crossorigin="anonymous"></script>
 
 </head>
