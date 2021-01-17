@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Private Classes
-img: private-classes.jpg
+img: private-classes.webp
 img_alt: Python ASAP private classes. A very beautiful woman sitting at a coffeehouse with her laptop, phone, and notebook. Python ASAP logo on the blackboard.
 category: Services
 ---

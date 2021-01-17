@@ -1,2 +1,2 @@
 User-agent: Googlebot-Image
-Disallow: /assets/img/saman.jpg
+Disallow: /assets/img/saman.webp

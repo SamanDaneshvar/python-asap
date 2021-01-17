@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Group Classes
-img: group-classes.jpg
+img: group-classes.webp
 img_alt: Python ASAP group classes. A diverse group of young adults sitting at a desk with computers, notes, and tablets. A Python poster on the board.
 category: Services
 ---
