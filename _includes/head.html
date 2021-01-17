@@ -3,7 +3,7 @@
 {% if site.google-analytics %}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google-analytics }}"></script>
-<script>  // This script is not dependant on gtag.js, therefore, it is okay that it executes before gtag.js.
+<script>  // This script is not dependant on gtag.js, therefore, it is okay that it is executed before gtag.js.
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());
@@ -33,15 +33,15 @@
 <link rel="icon" type="image/svg+xml" href="{{ site.url }}/assets/img/python-asap-logo.svg">
 
 <!-- Bootstrap Core CSS -->
-<link href="{{ site.url }}/assets/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ site.url }}/assets/css/bootstrap.min.css">
 
 <!-- Custom CSS -->
-<link href="{{ site.url }}/assets/css/landing-page.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ site.url }}/assets/css/landing-page.css">
 
 <!-- Custom Fonts -->
+<!-- Lato, Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
 <!-- Font Awesome -->
 <script defer src="https://kit.fontawesome.com/0e9764a93c.js" crossorigin="anonymous"></script>
-<!-- Lato, Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 </head>
