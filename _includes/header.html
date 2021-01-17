@@ -9,10 +9,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <!-- The JavaScript function for page-scroll, would not work with any URL other than an anchor link (#section).
+      <!-- The JavaScript function for page-scroll would not work with any URL other than an anchor link (#section).
       On the other hand, relative URLs (e.g., anchor links) would only work correctly in the homepage.
-      We have used the following if statement to produce a “pure” anchor link on the homepage and an absolute URL + the anchor link on other pages.
-      -->
+      We have used the following if statement to produce a “pure” anchor link on the homepage and an absolute URL + the anchor link on other pages. -->
       <a class="navbar-brand page-scroll" href="{% if page.layout == 'page' %}{{ site.url }}{% else %}#home{% endif %}">
         <!-- {{ site.title }} -->
         <span style="color:#646464;">Python</span>
