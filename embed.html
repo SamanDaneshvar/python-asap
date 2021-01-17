@@ -8,8 +8,8 @@ sitemap: false
 
 <script defer src="{{ site.url }}/assets/js/my-utils.js"></script>
 <script type='module'>  // Modules are deferred by default.
-  EMBED = document.querySelector("#embedded-document");
-  query = parse_query_string();
+  const EMBED = document.querySelector("#embedded-document");
+  let query = parse_query_string();
   EMBED.src = query['url'];
 </script>
 
