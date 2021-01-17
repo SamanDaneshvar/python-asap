@@ -24,13 +24,13 @@
 
 <script type='module'>
 function reveal(element) {
-if (element.id == "email") {
-  const ADDRESS = "{{ site.contact-email }}" + String.fromCharCode(64) + "{{ site.email-domain }}";
-  element.innerHTML = ADDRESS;
-  element.href = ":otliam".split("").reverse().join("") + ADDRESS;
-} else if (element.id == "phone") {
-  element.innerHTML = "{{ site.phone }}".split("").reverse().join("");
-  element.href = "{{ site.phone-url }}".split("").reverse().join("");
-}
+  if (element.id == "email") {
+    const ADDRESS = "{{ site.contact-email }}" + String.fromCharCode(64) + "{{ site.email-domain }}";
+    element.innerHTML = ADDRESS;
+    element.href = ":otliam".split("").reverse().join("") + ADDRESS;
+  } else if (element.id == "phone") {
+    element.innerHTML = "{{ site.phone }}".split("").reverse().join("");
+    element.href = "{{ site.phone-url }}".split("").reverse().join("");
+  }
 }
 </script>
