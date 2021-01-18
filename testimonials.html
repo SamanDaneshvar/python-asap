@@ -11,7 +11,7 @@ subTitle: Python ASAP
       <blockquote><i>
         {{ testimonial.content | markdownify }}
       </i></blockquote>
-      <p><b>{{ testimonial.name }}</b> {{ testimonial.description }}</p>
+      <p><b>{% if testimonial.display_name %}{{ testimonial.display_name }}{% else %}{{ testimonial.name }}{% endif %}</b> {{ testimonial.description }}</p>
     </div>
     <!-- /Testimonial -->
   

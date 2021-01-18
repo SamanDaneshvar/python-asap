@@ -1,5 +1,5 @@
 ---
-display_name: 
+display_name: A. R. (TEMP)
 name: Azar Riahi
 description: took private classes in 2019.
 notes: Written by me
