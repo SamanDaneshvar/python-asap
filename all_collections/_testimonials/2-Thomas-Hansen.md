@@ -1,6 +1,9 @@
 ---
+display_name: 
 name: Thomas Hansen
 description: took private classes in 2020.
+notes: Written by me
+original_text: 
 category: Testimonials
 ---
 Saman’s attention to detail is phenomenal. I had previously learned python to an intermediate level for my job. I started taking classes with Saman to acheive advanced proficiency in Python.

@@ -1,6 +1,9 @@
 ---
+display_name: 
 name: Azar Riahi
 description: took private classes in 2019.
+notes: Written by me
+original_text: 
 category: Testimonials
 ---
 I owe my current job to Saman’s classes!
