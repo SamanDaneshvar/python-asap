@@ -23,11 +23,12 @@
 </section>
 
 <script type='module'>
-// Each module has its own top-level scope. To make the *reveal()* function global so that *onmouseover* can access it,
-// we have defined the function as a property of the *window* object. In a web browser, the *window* object is the global object.
-//
-// Alternatively, you can remove the type='module' attribute from the <script> element. In that case, all the variables and functions
-// defined in the <script> element will have a global scope. However, modules are always deferred, and that's why we have used a module here.
+/* Each module has its own top-level scope. To make the *reveal()* function global so that *onmouseover* can access it,
+we have defined the function as a property of the *window* object. In a web browser, the *window* object is the global object.
+
+Alternatively, you can remove the type='module' attribute from the <script> element. In that case, all the variables and functions
+defined in the <script> element will have a global scope. However, modules are always deferred, and that's why we have used a module here.
+*/
 window.reveal = function(element) {
   if (element.id == "email") {
     const ADDRESS = "{{ site.contact-email }}" + String.fromCharCode(64) + "{{ site.email-domain }}";
