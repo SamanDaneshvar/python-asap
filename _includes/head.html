@@ -16,18 +16,28 @@
 <meta name="robots" content="noindex">
 {% endif %}
 
+{% capture page_title %}
+	{% if page.title_override %}
+		{{ page.title_override }}
+	{% else %}
+		{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
+	{% endif %}
+{% endcapture %}
+
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ site.description }}">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ site.description }}">
 
-<title>
-{% if page.title_override %}
-	{{ page.title_override }}
-{% else %}
-	{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}
-{% endif %}
-</title>
+<!-- Open Graph https://ogp.me -->
+<meta property="og:site_name" content="{{ site.title }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+<meta property="og:title" content="{{ page_title }}" />
+<meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% else %}{{ site.description }}{% endif %}" />
+<meta property="og:image" content="{{ site.url }}/assets/img/{{ og_image }}" />
+<meta property="og:image:alt" content="{{ page.og_image_alt }}" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="{{ site.url }}/assets/img/python-asap-logo.svg">

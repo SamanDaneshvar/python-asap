@@ -2,6 +2,7 @@
 #      Main Configs       #
 # ----------------------- #
 
+# Site URL, name, and description
 url: https://pythonasap.com
 title: Python ASAP
 description: >
