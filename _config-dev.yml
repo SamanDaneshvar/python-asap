@@ -3,5 +3,5 @@
 # Settings in later config files override settings in earlier files.
 # In production, GitHub Pages uses the default _config.yml file to build the website.
 
-# localhost
-url: http://127.0.0.1:4000
+# 127.0.0.1:4000
+url: http://localhost:4000
