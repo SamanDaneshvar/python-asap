@@ -1,7 +1,7 @@
 # In development, when building the site locally, enter the following command in Ruby:
 #     bundle exec jekyll serve --config _config.yml,_config-dev.yml
 # Settings in later config files override settings in earlier files.
-# In production, GitHub Pages uses the default _config.yml file to build the website.
+# In production, GitHub Pages uses the default _config.yml file to build the website. It also sets the Jekyll environment to *production* (the default value is *development*).
 
 # 127.0.0.1:4000
 url: http://localhost:4000
