@@ -26,6 +26,10 @@ h6 {
     font-weight: 400;
 }
 
+.trademark {
+  font-weight: 300;
+}
+
 .intro-header {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to ensure that the navbar doesn't overlap content. */
     text-align: center;
