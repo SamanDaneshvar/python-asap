@@ -28,7 +28,17 @@
                         <a href="{% if page.layout == 'page' %}{{ site.url }}/{% endif %}#contact">Contact</a>
                     </li>
                 </ul>
-                <p class="copyright text-muted small">Copyright &copy; 2020–{{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+                <p class="copyright text-muted small">
+                    Copyright &copy; 2020–{{ site.time | date: '%Y' }} Saman Daneshvar. All rights reserved.<br>
+                    <span class="python-asap-tm" style="color:#646464; text-shadow: 2px 3px 5px;">
+                        <span>Python</span>
+                        <span style="color:#4086f4;">A</span><span style="color:#eb4131;">S</span><span style="color:#fbbd00;">A</span><span style="color:#31aa52;">P</span
+                    ></span>&trade;
+                    and the logo
+                    <img src="{{ site.url }}/assets/img/python-asap-logo.svg" alt="Python ASAP Logo" height="15">&trade;
+                    are trademarks of Saman Daneshvar.<br>
+                    <span style="color:#646464;">Python&reg;</span> is the registered trademark of the Python Software Foundation.
+                </p>
             </div>
         </div>
     </div>
